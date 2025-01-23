@@ -1,0 +1,190 @@
+/* Estils generals */
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f4e5; /* Color crema clar per al fons */
+    color: #333; /* Text fosc per contrastar bé amb el fons clar */
+}
+
+/* Encapçalament */
+header {
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 3em;
+    color: rgb(10, 7, 7);
+    background-color: #e0b32d;
+    text-align: center;
+    margin: 10px 0;
+    }
+
+h1.h1custom, h3 {
+    display: inline-block; /* Perquè el text es mostri al costat de la imatge */
+    vertical-align: middle; /* Assegura que el text i la imatge estiguin alineats verticalment */
+    margin-right: 20px; /* Espai entre el títol i la imatge */
+}
+h4 {
+    font-size: 0.9em; /* Mida més petita per a l'h3 */
+    color: #6a6565; /* Opcional: color més suau */
+    margin-top: 2px; /* Opcional: ajusta l'espai entre l'h1 i l'h3 */
+}
+
+/* Imatge al costat del text */
+header img.logo {
+    width: 10%; /* Ajusta la mida de la imatge */
+    height: auto;
+    display: inline-block; /* Alinea la imatge amb el text */
+    vertical-align: middle; /* Alinea la imatge verticalment amb el text */
+}
+
+/* Menú */
+nav {
+    background-color: #d1c7b7; /* Fons igual que el header per mantenir coherència */
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #8f7d61; /* Color fosc que fa contrast amb el fons clar */
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #6f5b3f; /* Color més fosc en passar per sobre */
+}
+
+/* Articles */
+section {
+    padding: 20px 10%;
+}
+
+article {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+    padding: 15px;
+    background: hsl(54, 29%, 75%);
+    border: 1px solid #ccc; /* Borda més suau */
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 8px; /* Cantonades arrodonides per a un efecte més suau */
+}
+article a {
+    text-decoration: none; /* Elimina el subratllat de tots els enllaços dins dels articles */
+    color: inherit; /* Fa que l'enllaç tingui el mateix color que el text */
+}
+
+article a:hover {
+    text-decoration: underline; /* Opcional: subratlla quan passis el cursor per sobre */
+}
+article h1:hover {
+    transform: scale(1.2);
+    
+}
+
+article img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+article img:hover {
+    transform: scale(1.1);
+}
+/* Formulari */
+.formulari {
+    padding: 20px;
+    background-color: #fff; /* Fons blanc per al formulari */
+    border: 1px solid #ccc;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.formulari div {
+    margin: 10px 0;
+    width: 100%;
+}
+
+textarea, input[type="text"], select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #8f7d61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #6f5b3f;
+}
+
+aside nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Alinea los enlaces a la izquierda */
+}
+
+aside nav ul li {
+    margin-bottom: 10px; /* Espacio entre los enlaces */
+}
+
+aside nav ul li a {
+    text-decoration: none;
+    color: black; /* Color del enlace */
+    font-size: calc(1rem + 0.5vw); /* Tamaño del texto dinámico */
+    word-wrap: break-word;
+    padding: 5px 10px;
+    display: block; /* Asegura que cada enlace ocupe toda la línea */
+    background-color: #18d4d1;
+}
+
+aside nav ul li a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+}
+
+@media (max-width: 768px) {
+    aside nav ul li a {
+        font-size: calc(0.9rem + 0.3vw); /* Reduce el texto en pantallas pequeñas */
+    }
+}
+
+
+
+/* Peu de pàgina */
+footer {
+    background-color: #d1c7b7;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+
+
+

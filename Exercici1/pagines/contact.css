@@ -1,0 +1,60 @@
+/* Estils generals */
+* { 
+    font-family: sans-serif; 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box; /* Inclou padding i border dins de l'amplada i alçada */
+}
+
+/* Estils per al cos de la pàgina */
+body {
+    display: flex;
+    flex-direction: column;  /* Coloca els elements verticalment */
+    justify-content: space-between; /* Distribueix l'espai entre elements */
+    align-items: center; /* Centra horitzontalment tot el contingut */
+    min-height: 100vh; /* Assegura que el contingut ocupa com a mínim tota l'alçada de la pantalla */
+    background-color: #F4F4F4; /* Color de fons suau per a la pàgina */
+}
+
+/* Estils per al capçalera */
+header {
+    background-color: #050500; /* Color de fons negre */
+    color: rgb(227, 225, 225); /* Color del text blanc */
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+}
+
+header h1 {
+    font-family: 'Comic Sans MS', sans-serif;
+    font-size: 45px;
+}
+
+header h3 {
+    font-family: 'Brush Script MT', sans-serif;
+    font-size: 25px;
+}
+
+/* Estils per a la secció de contacte */
+section {
+    background-color: #EAE2B8; /* Color de fons verd fluix */
+    padding: 20px;
+    text-align: center;
+    width: 80%; /* Amplada de la secció per a no ocupar tot l'ample de la pantalla */
+    max-width: 800px; /* Amplada màxima de la secció */
+}
+
+section p {
+    font-size: 18px;
+    color: #333; /* Color de text gris fosc */
+}
+
+/* Estils per al footer */
+footer {
+    background-color: #CBCD00; /* Color de fons groc */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+}
