@@ -39,6 +39,7 @@ nav {
     background-color: #d1c7b7;
     padding: 10px 0;
     text-align: center;
+    
 }
 
 nav ul {
@@ -50,6 +51,7 @@ nav ul {
 nav li {
     display: inline-block;
     margin: 0 20px;
+    color:#e0b32d;
 }
 
 nav a {
@@ -79,6 +81,10 @@ article {
     box-sizing: border-box;
     text-align: center;
     border-radius: 8px;
+}
+article a {
+    color: #292b16;
+    text-decoration: none;
 }
 
 article img {
