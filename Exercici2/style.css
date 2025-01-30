@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #000000; /* Color fons negre */
+    color: #fcf3f3; /* Text blanc */
+}
+body h2 {
+   margin-left: 6%;
+
+
+}
+.album {
+    margin-top: 10%;
+    color: #dd0a0a;
+}
+
+
+header {
+    display: flex;
+    }
+.img {  
+    width: 100%; /* Amplada completa de la finestra */
+}
+section  {
+    display: inline-block;
+    padding: 2%;
+    justify-content:left ;
+    
+    
+
+}
+section div {
+    width: 33%;
+    height: auto;
+    text-align: center;
+    display: inline-block;
+    align-content: center;
+
+}
+.audio-contenidor {
+    color: aqua;
+    text-align: center;
+    background-color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+.audio-player {
+    width: 100%; /* Ajusta al 100% del ancho de su contenedor */
+    max-width: 600px; /* Limita el tamaño máximo */
+    display: block; /* Hace que se comporte como un bloque */
+    margin: 0; 
+}
+section div a {
+    text-decoration: none;
+}
+
+section div img {
+    width: 100%; /* Las imágenes ocuparán el 100% del ancho de su contenedor */
+    height: auto; /* Mantener la proporción original de la imagen */
+    text-align: center;
+}
+article {
+    box-sizing: border-box;
+    padding: 2%;
+    display: flex; /* Cambiado a flex para que justify-content tenga efecto */
+    justify-content: flex-start;
+    gap: 1%; /* Espacio entre los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea si es necesario */
+}
+
+article div {
+    width: 32%; /* Ajuste para dar espacio entre los elementos */
+}
+
+article div img {
+    width: 100%; /* Las imágenes ocuparán el 100% del ancho de su contenedor */
+    height: auto; /* Mantener la proporción original de la imagen */
+    display: block; /* Asegura que las imágenes no tengan margen inferior innecesario */
+}
+
+/* Estils de la imatge dins del header */
+
+table {
+    width: 30%;
+    margin: 20px auto;
+    margin-left: 5%;
+   
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    justify-content: flex-end;
+}
+
+th {
+    background-color: #000000;
+}
+.taula2 {
+    width: 70%;
+    border-collapse:inherit;
+    border-spacing: 10px;
+    color: #dd0a0a;
+}
+
+.taula2 th, .taula2 td {
+    padding: 12px;
+    border: 2px solid #f2f2f2;
+    text-align: center;
+}
+
+.taula2 th {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
+
+.taula2 td {
+    background-color: #000000;
+}
+
+nav {
+    display: flex; /* Convierte el contenedor en un contenedor flexbox */
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15%;
+
+}
+nav a {
+    color: #a10a97;
+    text-decoration: none;
+    
+    
+}
+
+.enllaços {
+    display: inline-block;  /* Asegura que los divs de imágenes estén en línea */
+    width: 33%;  /* Cada div ocupará un 33% del ancho */
+    margin: 0px auto;  
+    text-align: center; 
+}
+nav img {
+    width: 100%; /* Las imágenes ocuparán el 100% del ancho de su contenedor */
+    height: auto; /* Mantener la proporción original de la imagen */
+}
+nav img:hover {
+    transform: scale(1.5);
+}
+
+

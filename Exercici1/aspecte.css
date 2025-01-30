@@ -1,54 +1,49 @@
-/* Estils generals */
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f9f4e5; /* Color crema clar per al fons */
-    color: #333; /* Text fosc per contrastar bé amb el fons clar */
+    background-color: #f9f4e5;
+    color: #333;
 }
 
-/* Encapçalament */
 header {
-    font-family: 'Akaya Telivigala', cursive;
     font-size: 3em;
-    color: rgb(10, 7, 7);
+    color: #0a0707;
     background-color: #e0b32d;
     text-align: center;
     margin: 10px 0;
-    }
+}
 
 h1.h1custom, h3 {
-    display: inline-block; /* Perquè el text es mostri al costat de la imatge */
-    vertical-align: middle; /* Assegura que el text i la imatge estiguin alineats verticalment */
-    margin-right: 20px; /* Espai entre el títol i la imatge */
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
 }
+
 h4 {
-    font-size: 0.9em; /* Mida més petita per a l'h3 */
-    color: #6a6565; /* Opcional: color més suau */
-    margin-top: 2px; /* Opcional: ajusta l'espai entre l'h1 i l'h3 */
+    font-size: 16px;
+    color: #6a6565;
+    margin-top: 2px;
 }
 
-/* Imatge al costat del text */
 header img.logo {
-    width: 10%; /* Ajusta la mida de la imatge */
+    width: 10%;
     height: auto;
-    display: inline-block; /* Alinea la imatge amb el text */
-    vertical-align: middle; /* Alinea la imatge verticalment amb el text */
+    display: inline-block;
+    vertical-align: middle;
 }
 
-/* Menú */
 nav {
-    background-color: #d1c7b7; /* Fons igual que el header per mantenir coherència */
+    background-color: #d1c7b7;
     padding: 10px 0;
+    text-align: center;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
-    text-align: center;
     margin: 0;
 }
 
@@ -62,15 +57,14 @@ nav a {
     text-decoration: none;
     font-size: 16px;
     padding: 10px 20px;
-    background-color: #8f7d61; /* Color fosc que fa contrast amb el fons clar */
+    background-color: #8f7d61;
     border-radius: 5px;
 }
 
 nav a:hover {
-    background-color: #6f5b3f; /* Color més fosc en passar per sobre */
+    background-color: #6f5b3f;
 }
 
-/* Articles */
 section {
     padding: 20px 10%;
 }
@@ -80,23 +74,11 @@ article {
     width: 30%;
     margin: 10px;
     padding: 15px;
-    background: hsl(54, 29%, 75%);
-    border: 1px solid #ccc; /* Borda més suau */
+    background: #d1c770;
+    border: 1px solid #ccc;
     box-sizing: border-box;
     text-align: center;
-    border-radius: 8px; /* Cantonades arrodonides per a un efecte més suau */
-}
-article a {
-    text-decoration: none; /* Elimina el subratllat de tots els enllaços dins dels articles */
-    color: inherit; /* Fa que l'enllaç tingui el mateix color que el text */
-}
-
-article a:hover {
-    text-decoration: underline; /* Opcional: subratlla quan passis el cursor per sobre */
-}
-article h1:hover {
-    transform: scale(1.2);
-    
+    border-radius: 8px;
 }
 
 article img {
@@ -105,13 +87,14 @@ article img {
     object-fit: cover;
     border-radius: 5px;
 }
+
 article img:hover {
     transform: scale(1.1);
 }
-/* Formulari */
+
 .formulari {
     padding: 20px;
-    background-color: #fff; /* Fons blanc per al formulari */
+    background-color: #fff;
     border: 1px solid #ccc;
     margin: 20px 0;
     border-radius: 8px;
@@ -147,36 +130,27 @@ aside nav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    text-align: left; /* Alinea los enlaces a la izquierda */
+    text-align: left;
 }
 
 aside nav ul li {
-    margin-bottom: 10px; /* Espacio entre los enlaces */
+    margin-bottom: 10px;
 }
 
 aside nav ul li a {
     text-decoration: none;
-    color: black; /* Color del enlace */
-    font-size: calc(1rem + 0.5vw); /* Tamaño del texto dinámico */
+    color: black;
+    font-size: 16px;
     word-wrap: break-word;
     padding: 5px 10px;
-    display: block; /* Asegura que cada enlace ocupe toda la línea */
+    display: block;
     background-color: #18d4d1;
 }
 
 aside nav ul li a:hover {
-    text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+    text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-    aside nav ul li a {
-        font-size: calc(0.9rem + 0.3vw); /* Reduce el texto en pantallas pequeñas */
-    }
-}
-
-
-
-/* Peu de pàgina */
 footer {
     background-color: #d1c7b7;
     padding: 20px;
