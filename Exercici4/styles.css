@@ -5,7 +5,8 @@ body {
     padding: 0;
     text-align: center;
     position: relative;
-    background-image: url('imatges/portada_fons.jpg');
+    /*background-image: url('imatges/portada_fons.jpg');*/
+    background-image: url('https://picsum.photos/1200/800');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,6 +18,12 @@ body {
         backdrop-filter: none;
     }
 }
+@media (max-width: 576px) {
+    body {
+        background-attachment: scroll;
+    }
+}
+
 
 body::before {
     content: '';
