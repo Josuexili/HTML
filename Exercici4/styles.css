@@ -5,7 +5,9 @@ body {
     padding: 0;
     text-align: center;
     position: relative;
-    background-image: url('imatges/portada_fons.png');
+    /*background-image: url('imatges/portada_fons.png');*/
+    background-image: url('https://www.w3.org/Icons/w3c_home');
+
     
     background-size: cover;
     background-position: center;
