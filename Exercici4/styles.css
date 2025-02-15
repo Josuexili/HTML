@@ -6,7 +6,7 @@ body {
     text-align: center;
     position: relative;
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-                      url('https://www.w3.org/Icons/w3c_home');
+                      url('imatges/portada_fons.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
