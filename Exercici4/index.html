@@ -26,15 +26,9 @@
     <section id="fotos" class="section">
         <h2>Fotos</h2>
         <div class="photo-gallery">
-            <div class="photo">
-                <img src="imatges/foto1.jpg" alt="Foto 1" onclick="mostrar360('3d1.jpg', 'panorama1')">
-            </div>
-            <div class="photo">
-                <img src="imatges/foto2.jpg" alt="Foto 2" onclick="mostrar360('3d2.jpg', 'panorama2')">
-            </div>
-            <div class="photo">
-                <img src="imatges/foto3.jpg" alt="Foto 3" onclick="mostrar360('3d3.jpg', 'panorama3')">
-            </div>
+            <div class="photo"><img src="imatges/foto1.jpg" alt="Foto 1"></div>
+            <div class="photo"><img src="imatges/foto2.jpg" alt="Foto 2"></div>
+            <div class="photo"><img src="imatges/foto3.jpg" alt="Foto 3"></div>
         </div>
     </section>
 
@@ -54,7 +48,7 @@
             L'ermita presenta una orientació típica del romànic, amb l'absis orientat a l'est. Consta d'una sola nau amb l'absis a llevant, decorat amb cinc grups d'arcs llombards cecs entre bandes i una finestra central d'arc de mig punt. El campanar d'espadanya, situat a ponent, és un element singular amb quatre obertures esveltes cobertes amb arcs de mig punt. A l'interior, es conserva un sarcòfag romànic de pedra. 
            
             
-            
+           
             
             Actualment, l'ermita de Sant Pere de Vallhonesta es conserva com un important element del patrimoni arquitectònic de Sant Vicenç de Castellet. La zona de Vallhonesta manté el seu caràcter rural i és una de les portes d'entrada al parc natural de Sant Llorenç del Munt i l'Obac. L'ermita es pot visitar i és un punt d'interès per als amants de la història i la natura. 
            
@@ -70,9 +64,24 @@
         <h2>Interactiu 3D</h2>
 
         <!-- Contenidors per a les imatges 360 -->
-        <div id="panorama1" style="width: 100%; height: 500px; display: none;"></div>
-        <div id="panorama2" style="width: 100%; height: 500px; display: none;"></div>
-        <div id="panorama3" style="width: 100%; height: 500px; display: none;"></div>
+        <div id="panorama1" style="width: 100%; height: 500px;"></div>
+        <div id="panorama2" style="width: 100%; height: 500px;"></div>
+
+        <script type="text/javascript">
+            // Inicialitzar la primera imatge 360
+            pannellum.viewer('panorama1', {
+                "type": "equirectangular",  // Tipus de la imatge
+                "panorama": "imatges/3d1.jpg", // Ruta a la teva primera imatge 360
+                "autoLoad": true  // Carregar automàticament la imatge
+            });
+
+            // Inicialitzar la segona imatge 360
+            pannellum.viewer('panorama2', {
+                "type": "equirectangular",  // Tipus de la imatge
+                "panorama": "imatges/3d2.jpg", // Ruta a la teva segona imatge 360
+                "autoLoad": true  // Carregar automàticament la imatge
+            });
+        </script>
     </section>
 
     <!-- Secció Com Arribar-hi -->
@@ -86,25 +95,5 @@
     <!-- Footer (buit de moment) -->
     <footer>
     </footer>
-
-    <script type="text/javascript">
-        // Funció per mostrar la imatge 360 quan es fa clic sobre la foto
-        function mostrar360(imatge, contenidor) {
-            // Amagar totes les seccions de 360
-            document.getElementById('panorama1').style.display = 'none';
-            document.getElementById('panorama2').style.display = 'none';
-            document.getElementById('panorama3').style.display = 'none';
-
-            // Mostrar el contenidor corresponent
-            document.getElementById(contenidor).style.display = 'block';
-
-            // Inicialitzar la vista 360 amb l'imatge seleccionada
-            pannellum.viewer(contenidor, {
-                "type": "equirectangular",
-                "panorama": "imatges/" + imatge,
-                "autoLoad": true
-            });
-        }
-    </script>
 </body>
 </html>
