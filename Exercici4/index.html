@@ -63,6 +63,7 @@
         var geometry = new THREE.SphereGeometry(500, 60, 40);
         geometry.scale(-1, 1, 1); // Invertir la esfera perquè el vídeo s'hi vegi des de dins
 
+        // Crear l'element de vídeo
         var video = document.createElement('video');
         video.src = 'videos/Vallhonesta.mp4'; // Ruta del vídeo 360
         video.load();
