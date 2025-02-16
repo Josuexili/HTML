@@ -35,45 +35,29 @@
     <!-- Secció d'Història -->
     <section id="historia" class="section">
         <h2>Història</h2>
-        <p>L'Ermita de Sant Pere de Vallhonesta és una església romànica situada al municipi de Sant Vicenç de Castellet, a la comarca del Bages, Catalunya. Es troba a la banda de llevant del municipi, al vessant meridional de la vall del torrent de Rubió, dominant el petit enclau dels masos de Vallhonesta. 
-            CA.WIKIPEDIA.ORG
-            
-            Història
-            
-            L'origen de l'ermita es remunta al segle XI, quan exercia les funcions parroquials de l'antic terme de Vallhonesta. Aquesta zona estava documentada des de l'any 1115, amb els Guàrdia de Montserrat com a feudataris. Al segle XIV, després de la pesta negra de 1348, l'església va perdre la seva condició de parroquial i va passar a ser sufragània de l'església de Sant Vicenç de Castellbell. A finals del segle XIX, va passar a dependre de Sant Vicenç de Castellet. 
-            CA.WIKIPEDIA.ORG
-            
-            Arquitectura
-            
-            L'ermita presenta una orientació típica del romànic, amb l'absis orientat a l'est. Consta d'una sola nau amb l'absis a llevant, decorat amb cinc grups d'arcs llombards cecs entre bandes i una finestra central d'arc de mig punt. El campanar d'espadanya, situat a ponent, és un element singular amb quatre obertures esveltes cobertes amb arcs de mig punt. A l'interior, es conserva un sarcòfag romànic de pedra. 
-            CA.WIKIPEDIA.ORG
-            
-            Situació Actual
-            
-            Actualment, l'ermita de Sant Pere de Vallhonesta es conserva com un important element del patrimoni arquitectònic de Sant Vicenç de Castellet. La zona de Vallhonesta manté el seu caràcter rural i és una de les portes d'entrada al parc natural de Sant Llorenç del Munt i l'Obac. L'ermita es pot visitar i és un punt d'interès per als amants de la història i la natura. 
-            CA.WIKIPEDIA.ORG
-            
-            Per arribar-hi, es pot accedir des de Sant Vicenç de Castellet seguint el camí de Vallhonesta, que ofereix una vista panoràmica de la zona. Aquesta ruta també forma part de diversos itineraris de senderisme que permeten descobrir altres elements d'interès de la zona, com l'ermita de Sant Jaume de Vallhonesta i l'antic hostal de Sant Jaume. 
-            BAGESTURISME.CAT
-            
-            En resum, l'Ermita de Sant Pere de Vallhonesta és un testimoni viu de la història medieval de la comarca, amb una arquitectura que reflecteix les diferents etapes constructives i una ubicació que convida a la contemplació del paisatge natural que l'envolta.</p>
+        <p>L'Ermita de Sant Pere de Vallhonesta és una església romànica situada al municipi de Sant Vicenç de Castellet, a la comarca del Bages, Catalunya...</p>
     </section>
 
     <!-- Secció de Vídeos 3D (foto 360 interactiva) -->
     <section id="videos" class="section">
         <h2>Interactiu 3D</h2>
-        <div id="panorama" style="width: 100%; height: 500px;"></div> <!-- Contenidor per la imatge 360 -->
+
+        <!-- Contenidors per a les imatges 360 -->
+        <div id="panorama1" style="width: 100%; height: 500px;"></div>
+        <div id="panorama2" style="width: 100%; height: 500px;"></div>
+
         <script type="text/javascript">
-            pannellum.viewer('panorama', {
+            // Inicialitzar la primera imatge 360
+            pannellum.viewer('panorama1', {
                 "type": "equirectangular",  // Tipus de la imatge
-                "panorama": "imatges/3d1.jpg", // Ruta a la teva imatge 360 (substitueix aquesta ruta)
+                "panorama": "imatges/3d1.jpg", // Ruta a la teva primera imatge 360
                 "autoLoad": true  // Carregar automàticament la imatge
             });
-        </script>
-        <script type="text/javascript">
-            pannellum.viewer('panorama', {
+
+            // Inicialitzar la segona imatge 360
+            pannellum.viewer('panorama2', {
                 "type": "equirectangular",  // Tipus de la imatge
-                "panorama": "imatges/3d2.jpg", // Ruta a la teva imatge 360 (substitueix aquesta ruta)
+                "panorama": "imatges/3d2.jpg", // Ruta a la teva segona imatge 360
                 "autoLoad": true  // Carregar automàticament la imatge
             });
         </script>
