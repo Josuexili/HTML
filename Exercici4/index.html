@@ -32,7 +32,7 @@
     <!-- Secció d'Història -->
     <section id="historia" class="section">
         <h2>Història</h2>
-        <p>L'Ermita de Sant Pere de Vallhonesta, situada al municipi de Sant Vicenç de Castellet...</p>
+        <p>L'Ermita de Sant Pere de Vallhonesta, situada al municipi de Sant Vicenç de Castellet, és un destacat exemple d'arquitectura romànica amb una història que es remunta al segle XI...</p>
     </section>
 
     <!-- Secció de Vídeos 3D -->
@@ -49,6 +49,7 @@
         </div>
     </section>
 
+    <!-- Footer (buit de moment) -->
     <footer></footer>
 
     <script>
@@ -63,7 +64,6 @@
         var geometry = new THREE.SphereGeometry(500, 60, 40);
         geometry.scale(-1, 1, 1); // Invertir la esfera perquè el vídeo s'hi vegi des de dins
 
-        // Crear l'element de vídeo
         var video = document.createElement('video');
         video.src = 'videos/Vallhonesta.mp4'; // Ruta del vídeo 360
         video.load();
@@ -71,7 +71,6 @@
         video.loop = true;
         video.muted = true;
 
-        // Afegeix un missatge per verificar que el vídeo està carregat correctament
         video.oncanplay = function() {
             console.log('El vídeo s’ha carregat correctament');
 
@@ -81,15 +80,13 @@
             var sphere = new THREE.Mesh(geometry, material);
             scene.add(sphere);
 
+            // Col·locar la càmera a una distància adequada
+            camera.position.set(0, 0, 0.1); // Col·locar la càmera dins l'esfera
+
             // Control de la càmera per navegar
             var controls = new THREE.OrbitControls(camera, renderer.domElement);
-            camera.position.set(0, 0, 0.1);
 
-            // Ajustar el control per donar-li la capacitat de rotar el vídeo amb el ratolí
-            controls.enableZoom = false; // Deshabilitar el zoom
-            controls.enablePan = false;  // Deshabilitar el pan
-
-            // Renderitzar la escena
+            // Funció d'animació
             var animate = function () {
                 requestAnimationFrame(animate);
                 controls.update();
@@ -103,14 +100,6 @@
         video.onerror = function() {
             console.error('Error carregant el vídeo');
         };
-
-        // Ajustar la mida del canvas quan es redimensiona la finestra
-        window.addEventListener('resize', function() {
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-        });
     </script>
 </body>
 </html>
-
