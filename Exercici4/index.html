@@ -1,3 +1,4 @@
+<!-- HTML: sant_pere_vallhonesta.html -->
 <!DOCTYPE html>
 <html lang="ca">
 <head>
@@ -5,14 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sant Pere de Vallhonesta</title>
     <link rel="stylesheet" href="styles.css">
-    
+
     <!-- Carregar Panellum -->
     <script type="text/javascript" src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.pannellum.org/2.5/pannellum.css" />
-    
 </head>
 <body>
-    <!-- Menú fix a la part superior -->
+    <!-- Menú fix -->
     <nav class="navbar">
         <ul>
             <li><a href="#fotos">Fotos</a></li>
@@ -59,27 +59,29 @@
             En resum, l'Ermita de Sant Pere de Vallhonesta és un testimoni viu de la història medieval de la comarca, amb una arquitectura que reflecteix les diferents etapes constructives i una ubicació que convida a la contemplació del paisatge natural que l'envolta.</p>
     </section>
 
-    <!-- Secció de Vídeos 3D (foto 360 interactiva) -->
+    <!-- Secció de Vídeos 3D -->
     <section id="videos" class="section">
         <h2>Interactiu 3D</h2>
-
-        <!-- Contenidors per a les imatges 360 -->
-        <div id="panorama1" style="width: 100%; height: 500px;"></div>
-        <div id="panorama2" style="width: 100%; height: 500px;"></div>
+        <div class="threeD-gallery">
+            <div class="panorama-container" id="panorama1"></div>
+            <div class="panorama-container" id="panorama2"></div>
+            <div class="panorama-container" id="panorama3"></div>
+            <div class="panorama-container" id="panorama4"></div>
+            <div class="panorama-container" id="panorama5"></div>
+            <div class="panorama-container" id="panorama6"></div>
+        </div>
 
         <script type="text/javascript">
-            // Inicialitzar la primera imatge 360
-            pannellum.viewer('panorama1', {
-                "type": "equirectangular",  // Tipus de la imatge
-                "panorama": "imatges/3d1.jpg", // Ruta a la teva primera imatge 360
-                "autoLoad": true  // Carregar automàticament la imatge
-            });
-
-            // Inicialitzar la segona imatge 360
-            pannellum.viewer('panorama2', {
-                "type": "equirectangular",  // Tipus de la imatge
-                "panorama": "imatges/3d2.jpg", // Ruta a la teva segona imatge 360
-                "autoLoad": true  // Carregar automàticament la imatge
+            const panoramas = [
+                'imatges/3d1.jpg', 'imatges/3d2.jpg', 'imatges/3d3.jpg',
+                'imatges/3d4.jpg', 'imatges/3d5.jpg', 'imatges/3d6.jpg'
+            ];
+            panoramas.forEach((img, index) => {
+                pannellum.viewer(`panorama${index + 1}`, {
+                    "type": "equirectangular",
+                    "panorama": img,
+                    "autoLoad": true
+                });
             });
         </script>
     </section>
@@ -92,8 +94,7 @@
         </div>
     </section>
 
-    <!-- Footer (buit de moment) -->
-    <footer>
-    </footer>
+    <!-- Footer -->
+    <footer></footer>
 </body>
 </html>

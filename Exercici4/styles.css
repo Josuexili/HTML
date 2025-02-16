@@ -1,19 +1,13 @@
-/* Estils generals */
+/* CSS: styles.css */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    text-align: center;
-    position: relative;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
-                      url('imatges/portada_fons.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+                url('imatges/portada_fons.png') no-repeat center center/cover;
     color: #000;
 }
 
-/* Menú fix */
 .navbar {
     position: fixed;
     top: 0;
@@ -21,7 +15,6 @@ body {
     background-color: rgba(51, 51, 51, 0.7);
     z-index: 1000;
 }
-
 .navbar ul {
     list-style: none;
     margin: 0;
@@ -29,83 +22,63 @@ body {
     display: flex;
     justify-content: center;
 }
-
 .navbar li {
     margin: 0 20px;
 }
-
 .navbar a {
-    text-decoration: none;
     color: white;
+    text-decoration: none;
     padding: 20px;
     display: block;
 }
-
 .navbar a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Seccions */
 .section {
     padding: 80px 20px 40px 20px;
     margin-top: 60px;
 }
-
 .photo-gallery {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
-
 .photo img {
     width: 200px;
     height: 150px;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
-
-.video-container, .map-container {
-    margin: 20px auto;
-    max-width: 800px;
+.threeD-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
-
-.video-container iframe, .map-container iframe {
+.panorama-container {
+    height: 300px;
+    cursor: pointer;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+.map-container iframe {
     width: 100%;
     height: 450px;
 }
-
-/* Estils per a la secció d'Història */
-#historia p {
-    column-count: 2;
-    column-gap: 40px;
-    text-align: justify;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-
-@media (max-width: 768px) {
-    #historia p {
-        column-count: 1;
-    }
-}
-
-#historia p:first-of-type {
-    margin-top: 0;
-}
-
-@media (max-width: 576px) {
-    .photo-gallery {
-        flex-direction: column;
-        align-items: center;
-    }
-    .video-container iframe {
-        height: 300px;
-    }
-}
-
 footer {
     height: 50px;
     background-color: rgba(51, 51, 51, 0.7);
+}
+@media (max-width: 768px) {
+    .threeD-gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+@media (max-width: 480px) {
+    .threeD-gallery {
+        grid-template-columns: 1fr;
+    }
 }
