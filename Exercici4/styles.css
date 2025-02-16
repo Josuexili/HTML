@@ -14,7 +14,6 @@ body {
 }
 
 /* Menú fix */
-/* Menú fix */
 .navbar {
     position: fixed;
     top: 0;
@@ -29,11 +28,10 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; /* No permet que els elements passin a la següent línia */
 }
 
 .navbar li {
-    margin: 0 10px;
+    margin: 0 20px;
 }
 
 .navbar a {
@@ -41,41 +39,75 @@ body {
     color: white;
     padding: 20px;
     display: block;
-    font-size: 16px; /* Mida de font per a pantalles normals */
 }
 
 .navbar a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Media query per a pantalles petites */
-@media (max-width: 768px) {
-    .navbar ul {
-        justify-content: space-between; /* Repartim millor l'espai entre els elements */
-    }
-    .navbar a {
-        padding: 15px; /* Reduïm el padding per a pantalles més petites */
-        font-size: 14px; /* Font més petita per a pantalles petites */
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar ul {
-        justify-content: space-evenly; /* Assegura que hi hagi espai uniforme entre les opcions */
-    }
-    .navbar a {
-        padding: 12px; /* Reduïm més el padding per donar més espai */
-        font-size: 12px; /* Font encara més petita per a mòbils */
-    }
-}
-
-
 /* Seccions */
 .section {
     padding: 80px 20px 40px 20px;
     margin-top: 60px;
 }
-/* Galeria de miniatures */
+
+/* Galeria de fotos (4 per fila) */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 fotos per fila */
+    gap: 20px; /* Espai entre les fotos */
+    margin-top: 20px;
+}
+
+.photo img {
+    width: 100%;
+    height: 200px; /* Altura constant per a totes les fotos */
+    object-fit: cover; /* Asegura que la imatge cobreixi l'espai sense deformar-se */
+    border-radius: 10px; /* Arrodoneix les cantonades */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Afegir una ombra lleugera per a l'efecte visual */
+}
+
+/* Estils per al modal */
+.modal {
+    display: none; /* Ocult el modal per defecte */
+    position: fixed;
+    z-index: 2000; /* Assegura que el modal estigui per sobre del menú fix */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal #modalImage {
+    margin: 0 auto;
+    max-width: 90%;
+    max-height: 80%;
+    display: block;
+}
+
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Galeria de panorames (3 per fila) */
 .panorama-gallery {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columnes */
@@ -100,71 +132,6 @@ body {
 
 .panorama-thumbnail:hover {
     transform: scale(1.05); /* Efecete de zoom en la miniatura quan es passa per sobre */
-}
-
-/* Estils per al modal */
-.modal {
-    display: none; /* Ocult el modal per defecte */
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    overflow: auto;
-    padding-top: 60px;
-}
-
-.modal #panoramaViewer {
-    margin: 0 auto;
-    width: 80%;
-    height: 80%;
-}
-
-.modal .close {
-    position: absolute;
-    top: 20px;
-    right: 25px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-}
-
-.modal .close:hover,
-.modal .close:focus {
-    color: #ddd;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-.photo-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.photo img {
-    width: 200px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-.video-container, .map-container {
-    margin: 20px auto;
-    max-width: 800px;
-}
-
-.video-container iframe, .map-container iframe {
-    width: 100%;
-    height: 450px;
 }
 
 /* Estils per a la secció d'Història */
