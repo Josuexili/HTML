@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sant Pere de Vallhonesta</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/examples/js/controls/OrbitControls.js"></script>
 </head>
 <body>
     <!-- Menú fix a la part superior -->
@@ -21,40 +23,22 @@
     <section id="fotos" class="section">
         <h2>Fotos</h2>
         <div class="photo-gallery">
-            <!-- Inserir 15 fotos aquí -->
             <div class="photo"><img src="imatges/foto1.jpg" alt="Foto 1"></div>
             <div class="photo"><img src="imatges/foto2.jpg" alt="Foto 2"></div>
             <div class="photo"><img src="imatges/foto3.jpg" alt="Foto 3"></div>
-            <!-- Afegir més fotos segons calgui -->
         </div>
     </section>
 
     <!-- Secció d'Història -->
     <section id="historia" class="section">
         <h2>Història</h2>
-        <p>L'Ermita de Sant Pere de Vallhonesta, situada al municipi de Sant Vicenç de Castellet, és un destacat exemple d'arquitectura romànica amb una història que es remunta al segle XI. Originalment, va exercir funcions parroquials en l'antic terme de Vallhonesta, que va ser un municipi independent fins al 1850, quan es va integrar a Sant Vicenç de Castellet. 
-            
-            L'església presenta diverses etapes constructives:
-            
-            Segle XI: Construcció de l'absis i l'inici de la nau.
-            
-            Segle XII: Reedificació de la resta de la nau, possiblement per substituir una nau preromànica.
-            
-            Segle XIII: Reformació del mur de ponent, on s'alça el campanar d'espadanya amb quatre finestrals. 
-            
-            A l'interior, es conserva un sarcòfag romànic de pedra. 
-            
-            Pel que fa a esdeveniments, el 1 de maig es celebra l'Aplec de Vallhonesta, també conegut com la Festa del Panellet. Aquesta tradició, que es remunta al segle XVII, va ser restaurada el 1954 pel Centre Excursionista de Sant Vicenç de Castellet. Consisteix en una missa a l'aire lliure seguida del repartiment de panellets entre els assistents. No obstant això, des del 2018, la celebració s'ha traslladat a altres ubicacions degut a conflictes relacionats amb la propietat de l'ermita. 
-            
-            Per a més informació sobre l'ermita i els esdeveniments associats, es recomana contactar amb el Centre Excursionista de Sant Vicenç de Castellet o l'Ajuntament de Sant Vicenç de Castellet.</p>
+        <p>L'Ermita de Sant Pere de Vallhonesta, situada al municipi de Sant Vicenç de Castellet, és un destacat exemple d'arquitectura romànica amb una història que es remunta al segle XI...</p>
     </section>
 
     <!-- Secció de Vídeos 3D -->
     <section id="videos" class="section">
         <h2>Vídeos 3D</h2>
-        <div class="video-container">
-            <iframe src="videos/Sant Pere de Vallhonesta.mp4" frameborder="0" allowfullscreen></iframe>
-        </div>
+        <div id="video-360" class="video-container"></div>
     </section>
 
     <!-- Secció Com Arribar-hi -->
@@ -66,7 +50,56 @@
     </section>
 
     <!-- Footer (buit de moment) -->
-    <footer>
-    </footer>
+    <footer></footer>
+
+    <script>
+        // Crear escena 3D
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('video-360').appendChild(renderer.domElement);
+
+        // Crear una esfera per mostrar el vídeo
+        var geometry = new THREE.SphereGeometry(500, 60, 40);
+        geometry.scale(-1, 1, 1); // Invertir la esfera perquè el vídeo s'hi vegi des de dins
+
+        var video = document.createElement('video');
+        video.src = 'videos/Vallhonesta.mp4'; // Ruta del vídeo 360
+        video.load();
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+
+        video.oncanplay = function() {
+            console.log('El vídeo s’ha carregat correctament');
+
+            // Crear la textura del vídeo
+            var texture = new THREE.VideoTexture(video);
+            var material = new THREE.MeshBasicMaterial({ map: texture });
+            var sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+
+            // Col·locar la càmera a una distància adequada
+            camera.position.set(0, 0, 0.1); // Col·locar la càmera dins l'esfera
+
+            // Control de la càmera per navegar
+            var controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+            // Funció d'animació
+            var animate = function () {
+                requestAnimationFrame(animate);
+                controls.update();
+                renderer.render(scene, camera);
+            };
+
+            animate();
+        };
+
+        // Gestionar errors en carregar el vídeo
+        video.onerror = function() {
+            console.error('Error carregant el vídeo');
+        };
+    </script>
 </body>
 </html>
