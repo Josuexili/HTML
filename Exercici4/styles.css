@@ -14,6 +14,7 @@ body {
 }
 
 /* Menú fix */
+/* Menú fix */
 .navbar {
     position: fixed;
     top: 0;
@@ -28,10 +29,11 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: nowrap; /* No permet que els elements passin a la següent línia */
 }
 
 .navbar li {
-    margin: 0 20px;
+    margin: 0 10px;
 }
 
 .navbar a {
@@ -39,11 +41,34 @@ body {
     color: white;
     padding: 20px;
     display: block;
+    font-size: 16px; /* Mida de font per a pantalles normals */
 }
 
 .navbar a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Media query per a pantalles petites */
+@media (max-width: 768px) {
+    .navbar ul {
+        justify-content: space-between; /* Repartim millor l'espai entre els elements */
+    }
+    .navbar a {
+        padding: 15px; /* Reduïm el padding per a pantalles més petites */
+        font-size: 14px; /* Font més petita per a pantalles petites */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar ul {
+        justify-content: space-evenly; /* Assegura que hi hagi espai uniforme entre les opcions */
+    }
+    .navbar a {
+        padding: 12px; /* Reduïm més el padding per donar més espai */
+        font-size: 12px; /* Font encara més petita per a mòbils */
+    }
+}
+
 
 /* Seccions */
 .section {
