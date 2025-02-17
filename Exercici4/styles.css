@@ -89,6 +89,9 @@ h1 {
     .navbar-logo {
         display: none;
     }
+    #enllacos {
+        display: none;
+    }
 
     .navbar-menu a {
         font-size: 0.8rem; /* Fes les lletres més petites si cal */
