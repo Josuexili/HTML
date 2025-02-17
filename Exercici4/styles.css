@@ -83,6 +83,42 @@ h1 {
 .navbar-menu a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
+/* Mòbil petit (<576px) */
+@media (max-width: 575px) {
+    /* Mostrem els enllaços i amaguem els logos */
+    .navbar-logo {
+        display: none;
+    }
+
+    .navbar-menu a {
+        font-size: 0.8rem; /* Fes les lletres més petites si cal */
+        padding: 10px;
+    }
+}
+
+/* Tablet (576px a 992px) */
+@media (min-width: 576px) and (max-width: 991px) {
+    .navbar-logo {
+        display: flex; /* Mostrem els logos en dispositius tablet */
+    }
+
+    .navbar-menu a {
+        font-size: 1rem; /* Fes les lletres més petites si cal */
+        padding: 15px 20px;
+    }
+}
+
+/* Pantalla PC (>992px) */
+@media (min-width: 992px) {
+    .navbar-logo {
+        display: flex; /* Mostrem els logos en pantalles de PC */
+    }
+
+    .navbar-menu a {
+        font-size: 1.2rem;
+        padding: 15px 20px;
+    }
+}
 
 
 
