@@ -27,6 +27,7 @@
             <li><a href="#historia">Història</a></li>
             <li><a href="#videos">3D interactiu</a></li>
             <li><a href="#com-arribar">Mapa</a></li>
+            <li><a href="#enllacos">Enllaços</a></li>
         </ul>
         <div class="navbar-logo">
             <a href="https://www.svc.cat/" target="_blank" rel="noopener noreferrer" class="logo-link">
@@ -155,9 +156,57 @@ function closeModal() {
     <section id="com-arribar" class="section">
         <h2>Mapa</h2>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=EXEMPLE_MAPA" frameborder="0" allowfullscreen></iframe>
+            <!-- Mapa de l'ermita de Sant Pere de Vallhonesta dins un iframe -->
+            <iframe src="https://www.google.com/maps?q=Ermita+de+Sant+Pere+de+Vallhonesta&output=embed" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            
+            <!-- Enllaç per obrir Google Maps amb la ruta des de la ubicació actual -->
+            <p>
+                <button onclick="obrirRuta()">Obre la ruta des de la teva ubicació</button>
+            </p>
+            <p id="error-message" style="color:red; display:none;">Per generar la ruta, cal que permetis l'accés a la teva ubicació. Si us plau, activa la geolocalització al teu navegador.</p>
         </div>
     </section>
+    
+    <script>
+        function obrirRuta() {
+            // Obtenir la localització de l'usuari
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude;
+                    var lon = position.coords.longitude;
+                    
+                    // Crear la URL de Google Maps amb la ruta des de la ubicació de l'usuari fins a l'ermita
+                    var url = `https://www.google.com/maps/dir/?api=1&origin=${lat},${lon}&destination=Ermita+de+Sant+Pere+de+Vallhonesta`;
+                    // Obre la finestra nova amb la ruta
+                    window.open(url, '_blank');
+                }, function(error) {
+                    // Mostrar missatge d'error si no es pot obtenir la ubicació
+                    document.getElementById("error-message").style.display = "block";
+                });
+            } else {
+                alert("La geolocalització no està suportada pel teu navegador.");
+            }
+        }
+    </script>
+
+<section id="enllacos" class="section">
+    <h2>Enllaços recomanats</h2>
+    <ul>
+        <li><a href="https://ca.wikiloc.com/rutes-senderisme/sant-pere-i-sant-jaume-de-vallhonesta-i-el-puigsoler-100-cims-des-de-sant-vicenc-de-castellet-12909800" target="_blank">Ruta senderisme</a></li>
+        <li><a href="https://www.youtube.com/watch?v=0fozzxFXRac" target="_blank">Video 3D</a></li>
+        <li><a href="https://www.svc.cat/municipi/patrimoni/patrimoni-arquitectonic/sant-pere-de-vallhonesta/?turisme=" target="_blank">Ajuntament de Sant Vicenç de Castellet</a></li>
+        <li><a href="https://www.catalunyamedieval.es/esglesia-de-sant-pere-de-vallhonesta-sant-vicenc-de-castellet-bages/" target="_blank">Catalunya medieval</a></li>
+        <li><a href="https://bagesturisme.cat/activitat/ruta-de-vallhonesta/" target="_blank">Bages turisme</a></li>
+    </ul>
+</section>
+    
+    
+    
+    
+    
+    
+    
+    
 
     
     <footer class="footer">
@@ -169,15 +218,24 @@ function closeModal() {
                 <h6>Ajuntament de Sant Vicenç de Castellet</h6>
             </div>
             <div class="footer-images">
-                <img src="imatges/centrelogo.png" alt="Logo 1" class="footer-logo">
-                <img src="imatges/Inscastellet.png" alt="Logo 1" class="footer-logo">
-                <div class="white-background">
-                    <img src="imatges/logo_ajuntament.png" alt="Logo 2" class="footer-logo">
-                </div>
+                <!-- Primera imatge sense fons blanc -->
+                <a href="https://cesvcastellet.wixsite.com/index" target="_blank" rel="noopener noreferrer">
+                    <img src="imatges/centrelogo.png" alt="Logo 1" class="footer-logo">
+                </a>
+            
+                <!-- Segona imatge sense fons blanc -->
+                <a href="https://inscastellet.cat/" target="_blank" rel="noopener noreferrer">
+                    <img src="imatges/Inscastellet.png" alt="Logo 2" class="footer-logo">
+                </a>
+            
+                <!-- Tercera imatge amb fons blanc -->
+                <a href="https://www.svc.cat/" target="_blank" rel="noopener noreferrer">
+                    <img src="imatges/logo_ajuntament.png" alt="Logo 3" class="footer-logo white-background">
+                </a>
             </div>
             
             
-        </div>
+            
     </footer>
     
 
