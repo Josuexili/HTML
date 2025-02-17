@@ -131,14 +131,21 @@ function openModal(imgElement) {
     modal.style.display = "block";
 }
 
+
 // Funció per tancar el modal
 function closeModal() {
+    // Tancar el modal d'imatges
     var modal = document.getElementById('imageModal');
     modal.style.display = "none";
 
+    // Tancar el modal de panorames
     var panoramaModal = document.getElementById('panoramaModal');
-        panoramaModal.style.display = "none";
+    panoramaModal.style.display = "none";
+
+    // Netejar el contingut del visor 3D per evitar errors
+    document.getElementById('panoramaViewer').innerHTML = '';
 }
+
 
     </script>
     
