@@ -12,43 +12,84 @@ body {
     background-repeat: no-repeat;
     color: #000;
 }
-
-/* Menú fix */
+h1 {
+    margin-top: 10%;
+    font-family: 'Cormorant Unicase', cursive;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     background-color: rgba(51, 51, 51, 0.7);
     z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-.navbar ul {
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: transform 0.3s;
+}
+
+
+.logo-icon:hover {
+    transform: scale(1.4);
+}
+
+.logo-link:hover {
+    background-color: transparent; /* Evita qualsevol canvi de color */
+}
+
+.navbar-menu {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-grow: 1;
     justify-content: center;
 }
 
-.navbar li {
+.navbar-menu li {
     margin: 0 20px;
 }
 
-.navbar a {
+.navbar-menu a {
     text-decoration: none;
     color: white;
     padding: 20px;
     display: block;
+    transition: background-color 0.3s;
 }
 
-.navbar a:hover {
+.navbar-menu a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
+
+
 /* Seccions */
 .section {
-    padding: 80px 20px 40px 20px;
-    margin-top: 60px;
+    padding: 40px 20px 20px 20px;
+    margin-top: 30px;
 }
 
 /* Galeria de fotos (4 per fila) */
@@ -57,6 +98,9 @@ body {
     grid-template-columns: repeat(4, 1fr); /* 4 fotos per fila */
     gap: 20px; /* Espai entre les fotos */
     margin-top: 20px;
+}
+.photo-gallery .photo:nth-child(-n+8) img {
+    cursor: pointer;
 }
 
 .photo img {
@@ -163,7 +207,65 @@ body {
     }
 }
 
-footer {
-    height: 50px;
-    background-color: rgba(51, 51, 51, 0.7);
+.footer {
+    width: 100%;
+    background-color: rgba(51, 51, 51, 0.7); /* Fons similar al menú */
+    padding: 40px 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
 }
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-text {
+    flex: 1;
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-text h6 {
+    margin: 5px 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.footer-images {
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+    flex: 1;
+}
+
+.footer-logo {
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+/* Fons blanc només pel segon logo */
+.footer-images .footer-logo:last-child {
+    background-color: white;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+

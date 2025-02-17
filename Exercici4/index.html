@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="ca">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sant Pere de Vallhonesta</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap" rel="stylesheet">
+    <link rel="icon" href="imatges/centrelogo.png" type="image/png">
     
     <!-- Carregar Panellum -->
     <script type="text/javascript" src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
@@ -14,17 +17,30 @@
 <body>
     <!-- Menú fix a la part superior -->
     <nav class="navbar">
-        <ul>
+        <div class="navbar-logo">
+            <a href="https://cesvcastellet.wixsite.com/index" target="_blank" rel="noopener noreferrer" class="logo-link">
+                <img src="imatges/centrelogo.png" alt="Logo" class="logo-icon">
+            </a>
+        </div>
+        <ul class="navbar-menu">
             <li><a href="#fotos">Fotos</a></li>
             <li><a href="#historia">Història</a></li>
             <li><a href="#videos">3D interactiu</a></li>
             <li><a href="#com-arribar">Mapa</a></li>
         </ul>
+        <div class="navbar-logo">
+            <a href="https://www.svc.cat/" target="_blank" rel="noopener noreferrer" class="logo-link">
+                <img src="imatges/ajuntament1.jpeg" alt="Logo" class="logo-icon">
+            </a>
+        </div>
     </nav>
+    
+    
+    <h1>Sant Pere de Vallhonesta</h1>
 
     <!-- Secció de Fotos -->
     <section id="fotos" class="section">
-        <h2>Fotos</h2>
+        
         <div class="photo-gallery">
             <div class="photo"><img src="imatges/exterior3.jpg" alt="Foto 1" onclick="openModal(this)"></div>
             <div class="photo"><img src="imatges/exterior4.jpg" alt="Foto 2" onclick="openModal(this)"></div>
@@ -46,22 +62,22 @@
     <!-- Secció d'Història -->
     <section id="historia" class="section">
         <h2>Història</h2>
-        <p>L'Ermita de Sant Pere de Vallhonesta és una església romànica situada al municipi de Sant Vicenç de Castellet, a la comarca del Bages, Catalunya. Es troba a la banda de llevant del municipi, al vessant meridional de la vall del torrent de Rubió, dominant el petit enclau dels masos de Vallhonesta. 
+        <p>L'Ermita de Sant Pere de Vallhonesta és una petita església romànica que es troba a Sant Vicenç de Castellet, al Bages, just al vessant sud de la vall del torrent de Rubió. És un racó encantador que domina una zona plena d’història, envoltada de natura i amb vistes magnífiques.
 
-            L'origen de l'ermita es remunta al segle XI, quan exercia les funcions parroquials de l'antic terme de Vallhonesta. Aquesta zona estava documentada des de l'any 1115, amb els Guàrdia de Montserrat com a feudataris. Al segle XIV, després de la pesta negra de 1348, l'església va perdre la seva condició de parroquial i va passar a ser sufragània de l'església de Sant Vicenç de Castellbell. A finals del segle XIX, va passar a dependre de Sant Vicenç de Castellet. 
-
-            L'ermita presenta una orientació típica del romànic, amb l'absis orientat a l'est. Consta d'una sola nau amb l'absis a llevant, decorat amb cinc grups d'arcs llombards cecs entre bandes i una finestra central d'arc de mig punt. El campanar d'espadanya, situat a ponent, és un element singular amb quatre obertures esveltes cobertes amb arcs de mig punt. A l'interior, es conserva un sarcòfag romànic de pedra. 
-
-            Actualment, l'ermita de Sant Pere de Vallhonesta es conserva com un important element del patrimoni arquitectònic de Sant Vicenç de Castellet. La zona de Vallhonesta manté el seu caràcter rural i és una de les portes d'entrada al parc natural de Sant Llorenç del Munt i l'Obac. L'ermita es pot visitar i és un punt d'interès per als amants de la història i la natura. 
-
-            Per arribar-hi, es pot accedir des de Sant Vicenç de Castellet seguint el camí de Vallhonesta, que ofereix una vista panoràmica de la zona. Aquesta ruta també forma part de diversos itineraris de senderisme que permeten descobrir altres elements d'interès de la zona, com l'ermita de Sant Jaume de Vallhonesta i l'antic hostal de Sant Jaume. 
-
-            En resum, l'Ermita de Sant Pere de Vallhonesta és un testimoni viu de la història medieval de la comarca, amb una arquitectura que reflecteix les diferents etapes constructives i una ubicació que convida a la contemplació del paisatge natural que l'envolta.</p>
+            Aquesta ermita té els seus orígens al segle XI, quan feia de parròquia per als masos de Vallhonesta. La zona ja apareix documentada el 1115, amb els Guàrdia de Montserrat com a senyors feudals. Més endavant, al segle XIV, després de la devastadora pesta negra, va perdre el seu paper parroquial i va quedar com a sufragània de Sant Vicenç de Castellbell. Finalment, al segle XIX, va passar a dependre de Sant Vicenç de Castellet.
+            
+            L’edifici és un clar exemple del romànic català. Té una única nau amb un absis orientat a l’est, seguint la tradició d’aquella època. L’absis està decorat amb arcs llombards cecs i una finestra central d’arc de mig punt que li dona un toc especial. A la part de ponent, hi trobem el campanar d’espadanya, amb quatre obertures estilitzades que criden l’atenció. A dins, encara es conserva un sarcòfag de pedra d’època romànica.
+            
+            L’entorn de l’ermita és tranquil i convida a gaudir de la natura. De fet, Vallhonesta és una de les portes d’entrada al Parc Natural de Sant Llorenç del Munt i l’Obac, cosa que fa que sigui un punt de pas interessant per als amants del senderisme i de la història.
+            
+            Per arribar-hi, només cal agafar el camí de Vallhonesta des de Sant Vicenç de Castellet, una ruta senzilla que regala unes vistes espectaculars. A prop, també es pot visitar l’ermita de Sant Jaume de Vallhonesta i les restes de l’antic hostal de Sant Jaume.
+            
+            En definitiva, l’Ermita de Sant Pere de Vallhonesta és un petit tresor medieval que ens connecta amb el passat i ens permet gaudir d’un entorn natural que, tot i el pas dels segles, conserva la seva essència autèntica.</p>
     </section>
 
     <!-- Secció de Vídeos 3D (foto 360 interactiva) -->
     <section id="videos" class="section">
-        <h2>Interactiu 3D</h2>
+        <h2> 3D Interactiu</h2>
     
         <!-- Contenidor per a les imatges 360 en miniatura -->
         <div class="panorama-gallery">
@@ -119,6 +135,9 @@ function openModal(imgElement) {
 function closeModal() {
     var modal = document.getElementById('imageModal');
     modal.style.display = "none";
+
+    var panoramaModal = document.getElementById('panoramaModal');
+        panoramaModal.style.display = "none";
 }
 
     </script>
@@ -127,14 +146,34 @@ function closeModal() {
 
     <!-- Secció Com Arribar-hi -->
     <section id="com-arribar" class="section">
-        <h2>Com Arribar-hi</h2>
+        <h2>Mapa</h2>
         <div class="map-container">
             <iframe src="https://www.google.com/maps/embed?pb=EXEMPLE_MAPA" frameborder="0" allowfullscreen></iframe>
         </div>
     </section>
 
-    <!-- Footer (buit de moment) -->
-    <footer>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-text">
+                <h6>Agraïments especials:</h6>
+                <h6>Professor Sergi Gotarra i el seu grup d'alumnes</h6>
+                <h6>IES Castellet</h6>
+                <h6>Ajuntament de Sant Vicenç de Castellet</h6>
+            </div>
+            <div class="footer-images">
+                <img src="imatges/centrelogo.png" alt="Logo 1" class="footer-logo">
+                <img src="imatges/Inscastellet.png" alt="Logo 1" class="footer-logo">
+                <div class="white-background">
+                    <img src="imatges/logo_ajuntament.png" alt="Logo 2" class="footer-logo">
+                </div>
+            </div>
+            
+            
+        </div>
+    </footer>
+    
+
     </footer>
 </body>
 </html>
