@@ -156,18 +156,30 @@ body {
 }
 /* Mòbil petit (<576px) */
 @media (max-width: 575px) {
-    /* Mostrem els enllaços i amaguem els logos */
     .navbar-logo {
-        display: none;
+        display: none; /* Amaguem els logos en mòbil */
     }
-   
-    
+
+    .navbar-menu {
+        display: flex;
+        flex-wrap: nowrap; /* Evita que es trenqui la línia */
+        justify-content: space-between; /* Distribueix millor els elements */
+        width: 100%;
+    }
+
+    .navbar-menu li {
+        margin: 0;
+        flex-grow: 1; /* Fa que tots els elements ocupin el mateix espai */
+        text-align: center; /* Centrem el text */
+    }
 
     .navbar-menu a {
-        font-size: 0.8rem; /* Fes les lletres més petites si cal */
-        padding: 10px;
+        font-size: 3vw; /* Reduïm la mida de la font proporcionalment */
+        padding: 5px; /* Reduïm el padding per estalviar espai */
+        white-space: nowrap; /* Evitem que el text es trenqui en dues línies */
     }
 }
+
 
 /* Tablet (576px a 992px) */
 @media (min-width: 576px) and (max-width: 991px) {
