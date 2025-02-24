@@ -44,15 +44,13 @@ h1 {
 }
 
 @media (max-width: 575px) {
-    .header {
-        justify-content: flex-end; /* Alinea el contingut a la dreta per a pantalles petites */
-    }
+    
     .header h1 {
         text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
         font-size: 7vw; /* Mida una mica més gran per a pantalles petites */
         margin-left: 5vw; /* Reduïm més el margin esquerre */
         margin-right: 2vw; /* Afegim una mica de margin a la dreta */
-        margin-top: -40vh; /* Ajustem el desplaçament superior amb unitats relatives */
+        margin-top: -70vh; /* Ajustem el desplaçament superior amb unitats relatives */
     }
 }
 
@@ -154,9 +152,8 @@ body {
     .navbar-logo {
         display: none;
     }
-    #enllacos {
-        display: none;
-    }
+   
+    
 
     .navbar-menu a {
         font-size: 0.8rem; /* Fes les lletres més petites si cal */
@@ -446,6 +443,7 @@ body {
     .map-container iframe {
         height: 200px; /* Mapa més petit en mòbils */
     }
+
 }
 
 /* Tablet (576px a 992px) */
@@ -459,6 +457,10 @@ body {
 @media (min-width: 992px) {
     .map-container iframe {
         height: 300px; /* Mapa a mida normal en pantalles grans */
+    }
+    .nomobile {
+        display: none;
+
     }
 }
 
