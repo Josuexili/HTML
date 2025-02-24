@@ -55,7 +55,7 @@ h1 {
         font-size: 7vw; /* Mida una mica més gran per a pantalles petites */
         margin-left: 5vw; /* Reduïm més el margin esquerre */
         margin-right: 2vw; /* Afegim una mica de margin a la dreta */
-        margin-top: -70vh; /* Ajustem el desplaçament superior amb unitats relatives */
+        margin-top: -80vh; /* Ajustem el desplaçament superior amb unitats relatives */
     }
     .nom-petit {
         display: inline; /* Manté el text en la mateixa línia */
