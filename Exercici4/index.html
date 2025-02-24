@@ -136,15 +136,18 @@
                 "panorama": imageSrc,
                 "autoLoad": true,
                 "showControls": false,
-                "dragMode": "drag" // Activa el mode "moure"
+                "dragMode": "drag", // Activa el mode "moure"
+                "hotSpots": []
             });
+            viewer.on('load', function () {
+            viewer.setPitch(0);
+            viewer.setYaw(0);
+        });
+    }
     
             isDragging = true; // Inicia el mode de moviment
     
-            // Afegir el control de moviment amb el ratolí
-            document.addEventListener("mousemove", onMouseMove);
-            document.addEventListener("mouseup", stopDrag);
-        }
+          
     
         // Funció per moure la imatge quan el ratolí es desplaça
         function onMouseMove(event) {
