@@ -63,6 +63,21 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <img id="modalImage" src="" alt="Imatge gran">
         </div>
+        <script type="text/javascript">
+        // Funció per obrir el modal amb la imatge seleccionada
+function openModal(imgElement) {
+    var modal = document.getElementById("imageModal");
+    var modalImg = document.getElementById("modalImage");
+    modal.style.display = "flex"; // Fa visible el modal
+    modalImg.src = imgElement.src; // Assigna la imatge a mostrar
+}
+
+// Funció per tancar el modal
+function closeModal() {
+    var modal = document.getElementById("imageModal");
+    modal.style.display = "none"; // Amaga el modal
+}
+</script>
     </section>
     <!-- Secció d'Història -->
     <section id="historia" class="section">
@@ -91,9 +106,10 @@
     
         <!-- Contenidor per a les imatges 360 en miniatura -->
         <div class="panorama-gallery">
-            <div class="panorama-item" ondblclick="openPanorama('imatges/3d1.jpg')" onmousedown="startDrag(event, 'imatges/3d1.jpg')">
+            <div class="panorama-item" ondblclick="handleDoubleClick(event, 'imatges/3d1.jpg')" onmousedown="startDrag(event, 'imatges/3d1.jpg')">
                 <img src="imatges/3d1.jpg" alt="Panorama 1" class="panorama-thumbnail">
             </div>
+            
             <div class="panorama-item" ondblclick="openPanorama('imatges/3d2.jpg')" onmousedown="startDrag(event, 'imatges/3d2.jpg')">
                 <img src="imatges/3d2.jpg" alt="Panorama 2" class="panorama-thumbnail">
             </div>
@@ -107,7 +123,7 @@
     
         <!-- Modal per mostrar la imatge panoràmica -->
         <div id="panoramaModal" class="modal">
-            <span class="close" onclick="closeModal()">&times;</span>
+            <span class="close" onclick="closeModalPan()">&times;</span>
             <div id="panoramaViewer" style="width: 100%; height: 500px;"></div>
         </div>
     </section>
@@ -139,15 +155,14 @@
                 "dragMode": "drag", // Activa el mode "moure"
                 "hotSpots": []
             });
-            viewer.on('load', function () {
-            viewer.setPitch(0);
-            viewer.setYaw(0);
-        });
-    }
+            
     
             isDragging = true; // Inicia el mode de moviment
     
-          
+            // Afegir el control de moviment amb el ratolí
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", stopDrag);
+        }
     
         // Funció per moure la imatge quan el ratolí es desplaça
         function onMouseMove(event) {
@@ -165,7 +180,7 @@
         }
     
         // Funció per tancar el modal
-        function closeModal() {
+        function closeModalPan() {
             var panoramaModal = document.getElementById('panoramaModal');
             panoramaModal.style.display = "none";
             document.getElementById('panoramaViewer').innerHTML = ''; // Neteja el contingut del visor
