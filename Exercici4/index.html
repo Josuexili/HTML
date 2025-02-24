@@ -130,61 +130,62 @@ function closeModal() {
     
     <script type="text/javascript">
         var isDragging = false; // Estableix si el ratolí està sent arrossegat
-        var viewer;
-    
-        // Funció per obrir la vista panoràmica en un modal
-        function openPanorama(imageSrc) {
-            document.getElementById('panoramaModal').style.display = 'block';
-            viewer = pannellum.viewer('panoramaViewer', {
-                "type": "equirectangular",
-                "panorama": imageSrc,
-                "autoLoad": true,
-                "showControls": false, // Opcional: elimina controls
-                "dragMode": "drag" // Mode de moviment activat
-            });
-        }
-    
-        // Funció per iniciar el moviment de la imatge en mode "drag"
-        function startDrag(event, imageSrc) {
-            event.preventDefault();  // Evita comportaments per defecte del navegador
-            viewer = pannellum.viewer('panoramaViewer', {
-                "type": "equirectangular",
-                "panorama": imageSrc,
-                "autoLoad": true,
-                "showControls": false,
-                "dragMode": "drag", // Activa el mode "moure"
-                "hotSpots": []
-            });
-            
-    
-            isDragging = true; // Inicia el mode de moviment
-    
-            // Afegir el control de moviment amb el ratolí
-            document.addEventListener("mousemove", onMouseMove);
-            document.addEventListener("mouseup", stopDrag);
-        }
-    
-        // Funció per moure la imatge quan el ratolí es desplaça
-        function onMouseMove(event) {
-            if (isDragging) {
-                // Utilitzar el moviment del ratolí per moure la imatge 360º
-                viewer.mouseMove(event.clientX, event.clientY);
-            }
-        }
-    
-        // Funció per aturar el moviment quan es deixa anar el botó del ratolí
-        function stopDrag() {
-            isDragging = false; // Atura el moviment
-            document.removeEventListener("mousemove", onMouseMove); // Elimina l'esdeveniment "mousemove"
-            document.removeEventListener("mouseup", stopDrag); // Elimina l'esdeveniment "mouseup"
-        }
-    
-        // Funció per tancar el modal
-        function closeModalPan() {
-            var panoramaModal = document.getElementById('panoramaModal');
-            panoramaModal.style.display = "none";
-            document.getElementById('panoramaViewer').innerHTML = ''; // Neteja el contingut del visor
-        }
+var viewer;
+
+// Funció per obrir la vista panoràmica en un modal
+function openPanorama(imageSrc) {
+    document.getElementById('panoramaModal').style.display = 'block';
+    viewer = pannellum.viewer('panoramaViewer', {
+        "type": "equirectangular",
+        "panorama": imageSrc,
+        "autoLoad": true,
+        "showControls": false, // Opcional: elimina controls
+        "dragMode": "drag" // Mode de moviment activat
+    });
+}
+
+// Funció per iniciar el moviment de la imatge en mode "drag"
+function startDrag(event, imageSrc) {
+    event.preventDefault();  // Evita comportaments per defecte del navegador
+    viewer = pannellum.viewer('panoramaViewer', {
+        "type": "equirectangular",
+        "panorama": imageSrc,
+        "autoLoad": true,
+        "showControls": false,
+        "dragMode": "drag", // Activa el mode "moure"
+        "hotSpots": []
+    });
+
+    isDragging = true; // Inicia el mode de moviment
+}
+
+// Funció per moure la imatge quan el ratolí es desplaça
+function onMouseMove(event) {
+    if (isDragging) {
+        // Utilitzar el moviment del ratolí per moure la imatge 360º
+        viewer.mouseMove(event.clientX, event.clientY);
+    }
+}
+
+// Funció per aturar el moviment quan es deixa anar el botó del ratolí
+function stopDrag() {
+    isDragging = false; // Atura el moviment
+    document.removeEventListener("mousemove", onMouseMove); // Elimina l'esdeveniment "mousemove"
+    document.removeEventListener("mouseup", stopDrag); // Elimina l'esdeveniment "mouseup"
+}
+
+// Funció per detectar el doble clic i obrir el modal
+function handleDoubleClick(event, imageSrc) {
+    openPanorama(imageSrc); // Obre el modal només si és un doble clic
+}
+
+// Funció per tancar el modal de la vista panoràmica
+function closePanoramaModal() {
+    var panoramaModal = document.getElementById('panoramaModal');
+    panoramaModal.style.display = "none";
+    document.getElementById('panoramaViewer').innerHTML = ''; // Neteja el contingut del visor
+}
+
     </script>
     
     
