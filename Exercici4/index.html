@@ -47,14 +47,14 @@
     <section id="fotos" class="section">
         
         <div class="photo-gallery">
-            <div class="photo"><img src="imatges/exterior3.jpg" alt="Foto 1" onclick="openModal(this)"></div>
-            <div class="photo"><img src="imatges/exterior4.jpg" alt="Foto 2" onclick="openModal(this)"></div>
-            <div class="photo"><img src="imatges/interior3.jpg" alt="Foto 3" onclick="openModal(this)"></div>
-            <div class="photo"><img src="imatges/interior4.jpg" alt="Foto 4" onclick="openModal(this)"></div>
-            <div class="photo"><img src="imatges/exterior1.jpg" alt="Foto 5" onclick="openModal(this)"></div>
-            <div class="photo"><img src="imatges/exterior5.jpg" alt="Foto 6" onclick="openModal(this)"></div>
-            <div class="photo"><img src="imatges/interior6.jpg" alt="Foto 7" onclick="openModal(this)"></div>
-            <div class="photo"><img src="imatges/interior2.jpg" alt="Foto 8" onclick="openModal(this)"></div>
+            <div class="photo"><img src="imatges/exterior3.jpg" alt="Foto 1" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
+            <div class="photo"><img src="imatges/exterior4.jpg" alt="Foto 2" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
+            <div class="photo"><img src="imatges/interior3.jpg" alt="Foto 3" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
+            <div class="photo"><img src="imatges/interior4.jpg" alt="Foto 4" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
+            <div class="photo"><img src="imatges/exterior1.jpg" alt="Foto 5" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
+            <div class="photo"><img src="imatges/exterior5.jpg" alt="Foto 6" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
+            <div class="photo"><img src="imatges/interior6.jpg" alt="Foto 7" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
+            <div class="photo"><img src="imatges/interior2.jpg" alt="Foto 8" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
         </div>
         
     
@@ -69,7 +69,8 @@ function openModal(imgElement) {
     var modal = document.getElementById("imageModal");
     var modalImg = document.getElementById("modalImage");
     modal.style.display = "flex"; // Fa visible el modal
-    modalImg.src = imgElement.src; // Assigna la imatge a mostrar
+    modalImg.src = imgElement.src;
+    description.innerText = imgElement.getAttribute("data-description"); // Assigna la imatge a mostrar
 }
 
 // Funció per tancar el modal
@@ -79,11 +80,20 @@ function closeModal() {
 }
 </script>
     </section>
+
+
+
+
     <!-- Secció d'Història -->
     <section id="historia" class="section">
-        <div class="llibrefons">
+      
+           <div class="llibrefons">
+            <img src="imatges/llibre.png" class ="image-large" alt="Llibre">
+            <img src="imatges/perga.png" class ="image-small" alt="Llibre">
            
-            <img src="imatges/llibre.png" alt="Llibre">
+
+          
+
             
             <h2 class="macondo-regular">Història</h2>
             <p>L'Ermita de Sant Pere de Vallhonesta és una petita església romànica que es troba a Sant Vicenç de Castellet, al Bages, just al vessant sud de la vall del torrent de Rubió. És un racó encantador que domina una zona plena d’història, envoltada de natura i amb vistes magnífiques.
@@ -202,7 +212,7 @@ function closeModal() {
     <ul>
         <li><a href="https://ca.wikiloc.com/rutes-senderisme/sant-pere-i-sant-jaume-de-vallhonesta-i-el-puigsoler-100-cims-des-de-sant-vicenc-de-castellet-12909800" target="_blank">Ruta senderisme</a></li>
         <li><a href="https://www.youtube.com/watch?v=0fozzxFXRac" target="_blank">Video 3D</a></li>
-        <li><a href="https://www.svc.cat/municipi/patrimoni/patrimoni-arquitectonic/sant-pere-de-vallhonesta/?turisme=" target="_blank">Ajuntament de Sant Vicenç de Castellet</a></li>
+        <li><a href="https://www.svc.cat/municipi/patrimoni/patrimoni-arquitectonic/sant-pere-de-vallhonesta/?turisme=" target="_blank">Ajuntament de SVC</a></li>
         <li><a href="https://www.catalunyamedieval.es/esglesia-de-sant-pere-de-vallhonesta-sant-vicenc-de-castellet-bages/" target="_blank">Catalunya medieval</a></li>
         <li><a href="https://bagesturisme.cat/activitat/ruta-de-vallhonesta/" target="_blank">Bages turisme</a></li>
         <li><a href="https://www.youtube.com/watch?v=jetObyJFvzE" target="_blank">Vistes aèries</a></li>

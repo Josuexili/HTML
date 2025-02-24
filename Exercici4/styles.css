@@ -216,6 +216,60 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+/* Estils per al modal */
+/* Estils per al modal */
+.modal {
+    display: none; /* El modal està ocult per defecte */
+    position: fixed; /* Posició fixa a la pantalla */
+    z-index: 1000; /* Ha d'estar per sobre del contingut */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Fons fosc per fora de la finestra */
+    overflow: auto; /* Permet fer scroll si la imatge és més gran que la finestra */
+    padding-top: 60px; /* Espai superior per al tancament */
+}
+
+/* Estils per a la imatge dins del modal */
+.modal #modalImage {
+    margin: 0 auto;
+    max-width: 90%;
+    max-height: 80%;
+    display: block;
+}
+
+/* Estils per a la descripció dins del modal */
+.modal .description {
+    color: #fff; /* Color blanc per la descripció */
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fons fosc amb transparència per la descripció */
+    border-radius: 5px;
+}
+
+/* Estils per al botó de tancar */
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.modal .close:hover,
+.modal .close:focus {
+    color: #ddd;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 
 /* Galeria de panorames (3 per fila) */
@@ -254,23 +308,35 @@ body {
 }
 
 .llibrefons img {
+
+   
+    opacity: 0.8;
+   z-index: 0;
+   
+}
+/* Estil per a la imatge en pantalles grans */
+.image-large {
+    display: block; /* Per defecte, es mostra en pantalles grans */
     width: 100%;
     height: auto;
     object-fit: cover;
-    display: block;
-    opacity: 0.8;
-   
-   
 }
 
-/* Afegim una capa semitransparent només per la imatge */
+/* Estil per a la imatge en pantalles petites */
+.image-small {
+    display: none; /* Per defecte, no es mostra en pantalles grans */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+
+
+
+
 .macondo-regular {
     font-family: "Macondo", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
-.modern-antiqua-regular {
-    font-family: "Modern Antiqua", serif;
     font-weight: 400;
     font-style: normal;
   }
@@ -294,6 +360,7 @@ body {
 #historia p {
     font-family:'times new roman';
     position: absolute;
+    font-size: 1.3vw;
     top: 20%;
     left: 15%;
     right: 15%;
@@ -311,42 +378,46 @@ body {
 
 
 /* Mòbil petit */
-@media (max-width: 767px) {
-    /* Per a pantalles més petites, com mòbils i tablets */
-    #historia p {
-        column-count: 1; /* Passem a una sola columna per a més llegibilitat */
+/* Mòbil petit (<576px) */
+@media (max-width: 575px) {
+    /* Canviar imatge per a mòbils */
+    .image-large {
+        display: none; /* Ocultar imatge gran */
     }
-    .llibrefons img {
-        height: 40vh; /* Limitem l'altura de la imatge en pantalles petites */
+
+    .image-small {
+        display: block; /* Mostrar imatge petita */
     }
-}
 
+    /* Més petitesa a la lletra per a dispositius mòbils */
+    #historia h2 {
+        font-size: 1.2rem; /* Reduïm la mida de la lletra del títol */
+    }
 
-
-button {
-    cursor: pointer;
-
-}
-
-@media (max-width: 768px) {
     #historia p {
         column-count: 1;
+        font-size: 2vw; /* Reduïm la mida de la lletra del text */
     }
 }
 
-#historia p:first-of-type {
-    margin-top: 0;
+/* Tablet (576px a 991px) */
+@media (min-width: 576px) and (max-width: 991px) {
+    #historia h2 {
+        font-size: 1.5rem; /* Mida mitjana per a tablet */
+    }
+    #historia p {
+        column-count: 1;
+        font-size: 2vw; /* Mida mitjana per al text en tablet */
+    }
+    .image-large {
+        display: none; /* Ocultar imatge gran */
+    }
+
+    .image-small {
+        display: block; /* Mostrar imatge petita */
+    }
 }
 
-@media (max-width: 576px) {
-    .photo-gallery {
-        flex-direction: column;
-        align-items: center;
-    }
-    .video-container iframe {
-        height: 300px;
-    }
-}
 /* Estilització per a la secció del mapa */
 #com-arribar {
     margin-bottom: 30px; /* Afegim espai per separar la secció del mapa de la següent */
@@ -394,6 +465,9 @@ button {
 #enllacos ul {
     list-style-type: none;     /* Elimina els punts de la llista */
     padding: 0;
+    display: grid;             /* Utilitzem grid per col·locar els elements */
+    grid-template-columns: repeat(3, 1fr); /* 3 enllaços per fila */
+    gap: 10px;                 /* Espai entre els enllaços */
 }
 
 #enllacos ul li {
@@ -409,6 +483,7 @@ button {
 #enllacos ul li a:hover {
     text-decoration: underline; /* Subratllat quan el cursor passa per sobre */
 }
+
 
 
 
