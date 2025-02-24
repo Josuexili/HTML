@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sant Pere de Vallhonesta</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Macondo&family=Modern+Antiqua&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap" rel="stylesheet">
     <link rel="icon" href="imatges/centrelogo.png" type="image/png">
     
@@ -14,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.pannellum.org/2.5/pannellum.css" />
     
 </head>
+
 <body>
     <!-- Menú fix a la part superior -->
     <nav class="navbar">
@@ -35,9 +39,9 @@
             </a>
         </div>
     </nav>
-    
-    
-    <h1>Sant Pere de Vallhonesta</h1>
+    <div class="header">
+        <h1>Sant Pere de <br> Vallhonesta</h1>
+    </div>
 
     <!-- Secció de Fotos -->
     <section id="fotos" class="section">
@@ -62,8 +66,12 @@
     </section>
     <!-- Secció d'Història -->
     <section id="historia" class="section">
-        <h2>Història</h2>
-        <p>L'Ermita de Sant Pere de Vallhonesta és una petita església romànica que es troba a Sant Vicenç de Castellet, al Bages, just al vessant sud de la vall del torrent de Rubió. És un racó encantador que domina una zona plena d’història, envoltada de natura i amb vistes magnífiques.
+        <div class="llibrefons">
+           
+            <img src="imatges/llibre.png" alt="Llibre">
+            
+            <h2 class="macondo-regular">Història</h2>
+            <p>L'Ermita de Sant Pere de Vallhonesta és una petita església romànica que es troba a Sant Vicenç de Castellet, al Bages, just al vessant sud de la vall del torrent de Rubió. És un racó encantador que domina una zona plena d’història, envoltada de natura i amb vistes magnífiques.
 
             Aquesta ermita té els seus orígens al segle XI, quan feia de parròquia per als masos de Vallhonesta. La zona ja apareix documentada el 1115, amb els Guàrdia de Montserrat com a senyors feudals. Més endavant, al segle XIV, després de la devastadora pesta negra, va perdre el seu paper parroquial i va quedar com a sufragània de Sant Vicenç de Castellbell. Finalment, al segle XIX, va passar a dependre de Sant Vicenç de Castellet.
             
@@ -74,6 +82,7 @@
             Per arribar-hi, només cal agafar el camí de Vallhonesta des de Sant Vicenç de Castellet, una ruta senzilla que regala unes vistes espectaculars. A prop, també es pot visitar l’ermita de Sant Jaume de Vallhonesta i les restes de l’antic hostal de Sant Jaume.
             
             En definitiva, l’Ermita de Sant Pere de Vallhonesta és un petit tresor medieval que ens connecta amb el passat i ens permet gaudir d’un entorn natural que, tot i el pas dels segles, conserva la seva essència autèntica.</p>
+        </div>
     </section>
 
     <!-- Secció de Vídeos 3D (foto 360 interactiva) -->
@@ -82,23 +91,17 @@
     
         <!-- Contenidor per a les imatges 360 en miniatura -->
         <div class="panorama-gallery">
-            <div class="panorama-item" onclick="openPanorama('imatges/3d1.jpg')">
+            <div class="panorama-item" ondblclick="openPanorama('imatges/3d1.jpg')">
                 <img src="imatges/3d1.jpg" alt="Panorama 1" class="panorama-thumbnail">
             </div>
-            <div class="panorama-item" onclick="openPanorama('imatges/3d2.jpg')">
+            <div class="panorama-item" ondblclick="openPanorama('imatges/3d2.jpg')">
                 <img src="imatges/3d2.jpg" alt="Panorama 2" class="panorama-thumbnail">
             </div>
-            <div class="panorama-item" onclick="openPanorama('imatges/3d3.jpg')">
+            <div class="panorama-item" ondblclick="openPanorama('imatges/3d3.jpg')">
                 <img src="imatges/3d3.jpg" alt="Panorama 3" class="panorama-thumbnail">
             </div>
-            <div class="panorama-item" onclick="openPanorama('imatges/3d4.jpg')">
+            <div class="panorama-item" ondblclick="openPanorama('imatges/3d4.jpg')">
                 <img src="imatges/3d4.jpg" alt="Panorama 4" class="panorama-thumbnail">
-            </div>
-            <div class="panorama-item" onclick="openPanorama('imatges/3d5.jpg')">
-                <img src="imatges/3d5.jpg" alt="Panorama 5" class="panorama-thumbnail">
-            </div>
-            <div class="panorama-item" onclick="openPanorama('imatges/3d6.jpg')">
-                <img src="imatges/3d6.jpg" alt="Panorama 6" class="panorama-thumbnail">
             </div>
         </div>
     
@@ -119,6 +122,19 @@
                 "autoLoad": true
             });
         }
+        document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".panorama-item").forEach(function (item) {
+            let imageSrc = item.getAttribute("data-image");
+            
+            // Crear el visor panoràmic dins de cada div
+            pannellum.viewer(item.id, {
+                "type": "equirectangular",
+                "panorama": imageSrc,
+                "autoLoad": true,
+                "showControls": false  // Amagar botons de control
+            });
+        });
+    });
     
         // Funció per obrir el modal amb la imatge clicada
 function openModal(imgElement) {
@@ -200,16 +216,6 @@ function closeModal() {
         <li><a href="https://www.youtube.com/watch?v=jetObyJFvzE" target="_blank">Vistes aèries</a></li>
     </ul>
 </section>
-    
-    
-    
-    
-    
-    
-    
-    
-
-    
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-text">
@@ -221,7 +227,7 @@ function closeModal() {
             <div class="footer-images">
                 <!-- Primera imatge sense fons blanc -->
                 <a href="https://cesvcastellet.wixsite.com/index" target="_blank" rel="noopener noreferrer">
-                    <img src="imatges/centrelogo.png" alt="Logo 1" class="footer-logo">
+                    <img src="imatges/centrelogo.png" alt="Logo 1" class="footer-logo footer-logo-primer">
                 </a>
             
                 <!-- Segona imatge sense fons blanc -->
