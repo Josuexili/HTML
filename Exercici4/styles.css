@@ -55,7 +55,7 @@ h1 {
         font-size: 7vw; /* Mida una mica més gran per a pantalles petites */
         margin-left: 5vw; /* Reduïm més el margin esquerre */
         margin-right: 2vw; /* Afegim una mica de margin a la dreta */
-        margin-top: -80vh; /* Ajustem el desplaçament superior amb unitats relatives */
+        margin-top: -75vh; /* Ajustem el desplaçament superior amb unitats relatives */
     }
     .nom-petit {
         display: inline; /* Manté el text en la mateixa línia */
@@ -313,6 +313,27 @@ body {
 .panorama-item:active {
     cursor: grabbing; /* Cambia el cursor cuando el usuario arrastra */
 }
+@media (max-width: 575px) {
+.photo-gallery{
+    grid-template-columns: repeat(2, 1fr);
+}
+.panorama-gallery{
+    grid-template-columns: repeat(1, 1fr);
+}
+}
+@media (min-width: 576px) and (max-width: 991px){
+    .photo-gallery{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .panorama-gallery{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+@media (min-width: 992px) {
+
+}
+
 
 
 /* Estils per a la secció d'Història */
