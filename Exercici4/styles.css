@@ -381,6 +381,10 @@ body {
 /* Mòbil petit (<576px) */
 @media (max-width: 575px) {
     /* Canviar imatge per a mòbils */
+    #historia img {
+        height: 235vw;
+    }
+
     .image-large {
         display: none; /* Ocultar imatge gran */
     }
@@ -391,17 +395,24 @@ body {
 
     /* Més petitesa a la lletra per a dispositius mòbils */
     #historia h2 {
-        font-size: 1.2rem; /* Reduïm la mida de la lletra del títol */
+        font-size: 4.4vw; /* Reduïm la mida de la lletra del títol */
+        top: 2%;
+        right: 2%;
+        left: 2%;
     }
 
     #historia p {
+        top: 7%;
+        right: 3%;
+        left: 3%;
         column-count: 1;
-        font-size: 2vw; /* Reduïm la mida de la lletra del text */
+        font-size: 3.4vw; /* Reduïm la mida de la lletra del text */
     }
 }
 
 /* Tablet (576px a 991px) */
 @media (min-width: 576px) and (max-width: 991px) {
+   
     #historia h2 {
         font-size: 1.5rem; /* Mida mitjana per a tablet */
     }
@@ -414,7 +425,8 @@ body {
     }
 
     .image-small {
-        display: block; /* Mostrar imatge petita */
+        display: block;
+         /* Mostrar imatge petita */
     }
 }
 
