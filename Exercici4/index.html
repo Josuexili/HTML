@@ -40,8 +40,9 @@
         </div>
     </nav>
     <div class="header">
-        <h1>Sant Pere de <br> Vallhonesta</h1>
+        <h1><span class="nom-gran">Sant Pere de</span> <span class="nom-petit">Vallhonesta</span></h1>
     </div>
+    
 
     <!-- Secció de Fotos -->
     <section id="fotos" class="section">
@@ -179,7 +180,7 @@ function closeModal() {
             
             <!-- Enllaç per obrir Google Maps amb la ruta des de la ubicació actual -->
             <p>
-                <button onclick="obrirRuta()">Obre la ruta des de la teva ubicació</button>
+                <button class="nomobile" onclick="obrirRuta()">Obre la ruta des de la teva ubicació</button>
             </p>
             <p id="error-message" style="color:red; display:none;">Per generar la ruta, cal que permetis l'accés a la teva ubicació. Si us plau, activa la geolocalització al teu navegador.</p>
         </div>

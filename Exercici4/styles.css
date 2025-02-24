@@ -31,7 +31,11 @@ h1 {
     display: inline-block;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
 }
-
+@media (min-width: 576px) { 
+    .nom-petit {
+        display: block; /* Fa que "Vallhonesta" baixi a una línia nova */
+    }
+}
 @media (min-width: 576px) and (max-width: 991px) {
     .header {
         justify-content: left; /* Alinea el contingut a l'esquerra per a pantalles mitjanes */
@@ -41,6 +45,7 @@ h1 {
         margin-left: 4vw; /* Similar a 5vw però una mica més gran */
         margin-right: 7vw; /* Afegim més espai a la dreta */
     }
+    
 }
 
 @media (max-width: 575px) {
@@ -51,6 +56,9 @@ h1 {
         margin-left: 5vw; /* Reduïm més el margin esquerre */
         margin-right: 2vw; /* Afegim una mica de margin a la dreta */
         margin-top: -70vh; /* Ajustem el desplaçament superior amb unitats relatives */
+    }
+    .nom-petit {
+        display: inline; /* Manté el text en la mateixa línia */
     }
 }
 
