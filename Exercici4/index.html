@@ -113,48 +113,62 @@
     </section>
     
     <script type="text/javascript">
+        var isDragging = false; // Estableix si el ratolí està sent arrossegat
+        var viewer;
+    
         // Funció per obrir la vista panoràmica en un modal
         function openPanorama(imageSrc) {
             document.getElementById('panoramaModal').style.display = 'block';
-            pannellum.viewer('panoramaViewer', {
+            viewer = pannellum.viewer('panoramaViewer', {
                 "type": "equirectangular",
                 "panorama": imageSrc,
-                "autoLoad": true
+                "autoLoad": true,
+                "showControls": false, // Opcional: elimina controls
+                "dragMode": "drag" // Mode de moviment activat
             });
         }
     
         // Funció per iniciar el moviment de la imatge en mode "drag"
         function startDrag(event, imageSrc) {
-            event.preventDefault();  // Evita qualsevol comportament per defecte del navegador
-            pannellum.viewer('panoramaViewer', {
+            event.preventDefault();  // Evita comportaments per defecte del navegador
+            viewer = pannellum.viewer('panoramaViewer', {
                 "type": "equirectangular",
                 "panorama": imageSrc,
                 "autoLoad": true,
-                "dragMode": "move" // Activa el mode "moure" en la visualització 360º
+                "showControls": false,
+                "dragMode": "drag" // Activa el mode "moure"
             });
+    
+            isDragging = true; // Inicia el mode de moviment
+    
+            // Afegir el control de moviment amb el ratolí
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", stopDrag);
+        }
+    
+        // Funció per moure la imatge quan el ratolí es desplaça
+        function onMouseMove(event) {
+            if (isDragging) {
+                // Utilitzar el moviment del ratolí per moure la imatge 360º
+                viewer.mouseMove(event.clientX, event.clientY);
+            }
+        }
+    
+        // Funció per aturar el moviment quan es deixa anar el botó del ratolí
+        function stopDrag() {
+            isDragging = false; // Atura el moviment
+            document.removeEventListener("mousemove", onMouseMove); // Elimina l'esdeveniment "mousemove"
+            document.removeEventListener("mouseup", stopDrag); // Elimina l'esdeveniment "mouseup"
         }
     
         // Funció per tancar el modal
         function closeModal() {
             var panoramaModal = document.getElementById('panoramaModal');
             panoramaModal.style.display = "none";
-            document.getElementById('panoramaViewer').innerHTML = ''; // Netejar el contingut del visor
+            document.getElementById('panoramaViewer').innerHTML = ''; // Neteja el contingut del visor
         }
-    
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll(".panorama-item").forEach(function (item) {
-                let imageSrc = item.getAttribute("data-image");
-    
-                pannellum.viewer(item.id, {
-                    "type": "equirectangular",
-                    "panorama": imageSrc,
-                    "autoLoad": true,
-                    "showControls": false,
-                    "dragMode": "hold" // Moviment només quan es manté premut
-                });
-            });
-        });
     </script>
+    
     
     
     
