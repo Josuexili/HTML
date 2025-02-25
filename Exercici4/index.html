@@ -46,7 +46,6 @@
 
     <!-- Secció de Fotos -->
     <section id="fotos" class="section">
-        
         <div class="photo-gallery">
             <div class="photo"><img src="imatges/exterior3.jpg" alt="Foto 1" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
             <div class="photo"><img src="imatges/exterior4.jpg" alt="Foto 2" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
@@ -57,29 +56,38 @@
             <div class="photo"><img src="imatges/interior6.jpg" alt="Foto 7" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
             <div class="photo"><img src="imatges/interior2.jpg" alt="Foto 8" onclick="openModal(this)" data-description="Aquesta és la foto exterior 3."></div>
         </div>
-        
     
         <!-- Modal per mostrar la imatge gran -->
         <div id="imageModal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="Imatge gran">
+            <div class="modal-content">
+                <img id="modalImage" src="" alt="Imatge gran">
+                <p id="modalDescription"></p>
+            </div>
         </div>
-        <script type="text/javascript">
+    </section>
+    
+    <script type="text/javascript">
         // Funció per obrir el modal amb la imatge seleccionada
-function openModal(imgElement) {
-    var modal = document.getElementById("imageModal");
-    var modalImg = document.getElementById("modalImage");
-    modal.style.display = "flex"; // Fa visible el modal
-    modalImg.src = imgElement.src;
-    description.innerText = imgElement.getAttribute("data-description"); // Assigna la imatge a mostrar
-}
-
-// Funció per tancar el modal
-function closeModal() {
-    var modal = document.getElementById("imageModal");
-    modal.style.display = "none"; // Amaga el modal
-}
-</script>
+        function openModal(imgElement) {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            var modalDesc = document.getElementById("modalDescription");
+            modal.style.display = "flex"; // Fa visible el modal
+            modalImg.src = imgElement.src;
+            modalDesc.innerText = imgElement.getAttribute("data-description");
+        }
+    
+        // Funció per tancar el modal
+        function closeModal() {
+            var modal = document.getElementById("imageModal");
+            modal.style.display = "none"; // Amaga el modal
+        }
+        window.addEventListener('DOMContentLoaded', function () {
+        var modal = document.getElementById('imageModal');
+        modal.style.display = 'none'; // Només per si no es tanquen automàticament
+    });
+    </script>
     </section>
 
 
@@ -223,9 +231,10 @@ function closeModal() {
         <div class="footer-content">
             <div class="footer-text">
                 <h6>Agraïments especials:</h6>
-                <h6>Professor Sergi Gotarra i el seu grup d'alumnes</h6>
-                <h6>IES Castellet</h6>
-                <h6>Ajuntament de Sant Vicenç de Castellet</h6>
+                <h6>·   Professor Sergi Gotarra</h6>
+                <h6>   IES Castellet</h6>
+                <h6></h6>
+                
             </div>
             <div class="footer-images">
                 <!-- Primera imatge sense fons blanc -->
@@ -246,7 +255,7 @@ function closeModal() {
             
             
             
-    </footer>
+    
     
 
     </footer>
