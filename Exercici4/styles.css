@@ -534,14 +534,14 @@ body {
 
 /* Estilització per a la secció d'enllaços recomanats alineada a l'esquerra */
 #enllacos {
-    margin-left: 20px;         /* Afegim una distància des de l'esquerra */
-    margin-top: 30px;          /* Afegim una distància des de la part superior */
-    padding: 10px;             /* Afegim una mica de marge intern */
+    margin-left: 2vw;         /* Afegim una distància des de l'esquerra */
+    margin-top: 3vh;          /* Afegim una distància des de la part superior */
+    padding: 1vw;             /* Afegim una mica de marge intern */
 }
 
 #enllacos h2 {
     font-size: 1.5rem;         /* Mida del títol */
-    margin-bottom: 15px;       /* Espai inferior entre el títol i la llista */
+    margin-bottom: 1.5vw;       /* Espai inferior entre el títol i la llista */
 }
 
 #enllacos ul {
