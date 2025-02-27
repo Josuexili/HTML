@@ -668,7 +668,8 @@ body {
         width: 15vw;
         max-width: 50px;
         gap: 4vw;
-      
+        margin-left: 5px; /* Añade margen izquierdo */
+        margin-right: 5px;
         /* Menor mida dels logos en mòbil */
     }
 
@@ -693,6 +694,7 @@ body {
         gap: 4vw; /* Espai moderat entre logos */
         justify-content: space-between;
         margin: 0 auto;
+        padding: 0 5%;
         align-items: center;
         flex-wrap: nowrap;
           
