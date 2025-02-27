@@ -607,11 +607,14 @@ body {
 
 .footer-images {
     display: flex;
-    justify-content: flex-start;
-    align-items: center; 
-    gap: 70px;
-    flex: 1;
+    justify-content: center; /* Centra els logos a la pantalla */
+    align-items: center;
+    gap: 5vw; /* Espai proporcional a l'ample de la pantalla */
+    flex-wrap: wrap; /* Permet que els logos baixin de línia si cal */
+    width: 75%; /* Assegura que ocupi tot l'ample disponible */
 }
+
+
 
 .footer-logo {
     width: 8vw; /* Proporcional a l'amplada de la finestra */
@@ -656,15 +659,16 @@ body {
     }
 
     .footer-images {
-        gap: 20px; /* Menys espai entre logos */
+        gap: 4vw; /* Menys espai entre logos */
         justify-content: center; 
         align-items: center;
+        width: 100%;
     }
 
     /* Ajustar la mida dels logos en mòbil */
     .footer-logo {
-        width: 50px;
-        max-width: 60px;
+        width: 15vw;
+        max-width: 50px;
         justify-content: space-around; /* Menor mida dels logos en mòbil */
     }
 
