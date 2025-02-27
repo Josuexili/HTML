@@ -12,14 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase&display=swap" rel="stylesheet">
     <link rel="icon" href="imatges/centrelogo.png" type="image/png">
     
-    <!-- Carregar Panellum -->
+  
     <script type="text/javascript" src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.pannellum.org/2.5/pannellum.css" />
     
 </head>
 
 <body>
-    <!-- Menú fix a la part superior -->
+
     <nav class="navbar">
         <div class="navbar-logo">
             <a href="https://cesvcastellet.wixsite.com/index" target="_blank" rel="noopener noreferrer" class="logo-link">
@@ -44,7 +44,7 @@
     </div>
     
 
-    <!-- Secció de Fotos -->
+  
     <section id="fotos" class="section">
         <div class="photo-gallery">
             <div class="photo"><img src="imatges/exterior3.jpg" alt="Foto 1" onclick="openModal(this)" data-description="Vista panoràmica amb Cal Campaner."></div>
@@ -57,7 +57,7 @@
             <div class="photo"><img src="imatges/interior2.jpg" alt="Foto 8" onclick="openModal(this)" data-description="Interior de l'església."></div>
         </div>
     
-        <!-- Modal per mostrar la imatge gran -->
+        
         <div id="imageModal" class="modal">
             <span class="close" onclick="closeModal()">&times;</span>
             <div class="modal-content">
@@ -68,24 +68,24 @@
     </section>
     
     <script type="text/javascript">
-        // Funció per obrir el modal amb la imatge seleccionada
+       
         function openModal(imgElement) {
             var modal = document.getElementById("imageModal");
             var modalImg = document.getElementById("modalImage");
             var modalDesc = document.getElementById("modalDescription");
-            modal.style.display = "flex"; // Fa visible el modal
+            modal.style.display = "flex"; 
             modalImg.src = imgElement.src;
             modalDesc.innerText = imgElement.getAttribute("data-description");
         }
     
-        // Funció per tancar el modal
+      
         function closeModal() {
             var modal = document.getElementById("imageModal");
-            modal.style.display = "none"; // Amaga el modal
+            modal.style.display = "none"; 
         }
         window.addEventListener('DOMContentLoaded', function () {
         var modal = document.getElementById('imageModal');
-        modal.style.display = 'none'; // Només per si no es tanquen automàticament
+        modal.style.display = 'none'; 
     });
     </script>
     </section>
@@ -93,7 +93,7 @@
 
 
 
-    <!-- Secció d'Història -->
+   
     <section id="historia" class="section">
       
            <div class="llibrefons">
@@ -119,11 +119,11 @@
         </div>
     </section>
 
-    <!-- Secció de Vídeos 3D (foto 360 interactiva) -->
+    
     <section id="videos" class="section">
         <h2>3D Interactiu</h2>
         
-        <!-- Contenidor per a les imatges 360 en miniatura -->
+       
         <div class="panorama-gallery">
             <div id="panorama1" class="panorama-item">
                 <div id="panoramaViewer1" style="width: 100%; height: 500px;"></div>
@@ -142,31 +142,31 @@
     
     <script src="https://pannellum.org/js/pannellum.js"></script>
     <script>
-        // Inicia els visors panoràmics per a cada imatge 360
+      
         pannellum.viewer('panoramaViewer1', {
             "type": "equirectangular",
-            "panorama": "imatges/3d1.jpg", // Ruta de la primera imatge 360
+            "panorama": "imatges/3d1.jpg", 
             "autoLoad": true,
-            "showControls": true // Controls activats (pots eliminar-ho si no els vols)
+            "showControls": true 
         });
     
         pannellum.viewer('panoramaViewer2', {
             "type": "equirectangular",
-            "panorama": "imatges/3d4.jpg", // Ruta de la segona imatge 360
+            "panorama": "imatges/3d4.jpg", 
             "autoLoad": true,
             "showControls": true
         });
     
         pannellum.viewer('panoramaViewer3', {
             "type": "equirectangular",
-            "panorama": "imatges/3d11.jpg", // Ruta de la tercera imatge 360
+            "panorama": "imatges/3d11.jpg", 
             "autoLoad": true,
             "showControls": true
         });
     
         pannellum.viewer('panoramaViewer4', {
             "type": "equirectangular",
-            "panorama": "imatges/3d6.jpg", // Ruta de la quarta imatge 360
+            "panorama": "imatges/3d6.jpg", 
             "autoLoad": true,
             "showControls": true
         });
@@ -179,14 +179,14 @@
     
     
 
-    <!-- Secció Com Arribar-hi -->
+
     <section id="com-arribar" class="section">
         <h2>Mapa</h2>
         <div class="map-container">
-            <!-- Mapa de l'ermita de Sant Pere de Vallhonesta dins un iframe -->
+         
             <iframe src="https://www.google.com/maps?q=Ermita+de+Sant+Pere+de+Vallhonesta&output=embed" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             
-            <!-- Enllaç per obrir Google Maps amb la ruta des de la ubicació actual -->
+           
             <p>
                 <button class="nomobile" onclick="obrirRuta()">Obre la ruta des de la teva ubicació</button>
             </p>
@@ -196,18 +196,18 @@
     
     <script>
         function obrirRuta() {
-            // Obtenir la localització de l'usuari
+           
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(function(position) {
                     var lat = position.coords.latitude;
                     var lon = position.coords.longitude;
                     
-                    // Crear la URL de Google Maps amb la ruta des de la ubicació de l'usuari fins a l'ermita
+                   
                     var url = `https://www.google.com/maps/dir/?api=1&origin=${lat},${lon}&destination=Ermita+de+Sant+Pere+de+Vallhonesta`;
-                    // Obre la finestra nova amb la ruta
+                   
                     window.open(url, '_blank');
                 }, function(error) {
-                    // Mostrar missatge d'error si no es pot obtenir la ubicació
+                  
                     document.getElementById("error-message").style.display = "block";
                 });
             } else {
@@ -237,17 +237,17 @@
                 
             </div>
             <div class="footer-images">
-                <!-- Primera imatge sense fons blanc -->
+              
                 <a href="https://cesvcastellet.wixsite.com/index" target="_blank" rel="noopener noreferrer">
                     <img src="imatges/centrelogo.png" alt="Logo 1" class="footer-logo footer-logo-primer">
                 </a>
             
-                <!-- Segona imatge sense fons blanc -->
+          
                 <a href="https://inscastellet.cat/" target="_blank" rel="noopener noreferrer">
                     <img src="imatges/Inscastellet.png" alt="Logo 2" class="footer-logo">
                 </a>
             
-                <!-- Tercera imatge amb fons blanc -->
+               
                 <a href="https://www.svc.cat/" target="_blank" rel="noopener noreferrer">
                     <img src="imatges/logo_ajuntament.png" alt="Logo 3" class="footer-logo white-background">
                 </a>
