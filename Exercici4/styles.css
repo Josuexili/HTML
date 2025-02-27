@@ -606,8 +606,9 @@ body {
 }
 
 .footer-images {
+    margin: 0 auto;
     display: flex;
-    justify-content: center; /* Centra els logos a la pantalla */
+    justify-content: space-between; /* Centra els logos a la pantalla */
     align-items: center;
     gap: 5vw; /* Espai proporcional a l'ample de la pantalla */
     flex-wrap: wrap; /* Permet que els logos baixin de línia si cal */
@@ -623,7 +624,8 @@ body {
     height: auto;
     object-fit: contain;
     border-radius: 10px;
-   
+    margin-left: 4vw;
+    margin-right: 4vw;
     transition: transform 0.3s;
     cursor: pointer;
     background-color: transparent;
@@ -654,22 +656,19 @@ body {
         padding: 15px 10px; /* Més petit en mòbil */
     }
 
-    .footer-text h6 {
-        font-size: 0.8rem; /* Font més petita en mòbil */
-    }
-
-    .footer-images {
-        gap: 4vw; /* Menys espai entre logos */
-        justify-content: center; 
+    .footer-images { /* Menys espai entre logos */
+        justify-content: space-between; 
         align-items: center;
         width: 100%;
+        margin: 0 auto;
     }
 
     /* Ajustar la mida dels logos en mòbil */
     .footer-logo {
         width: 15vw;
         max-width: 50px;
-        justify-content: space-around; /* Menor mida dels logos en mòbil */
+        gap: 4vw;
+        /* Menor mida dels logos en mòbil */
     }
 
     /* Amagar agraïments especials en mòbil */
@@ -690,13 +689,19 @@ body {
     }
 
     .footer-images {
-        gap: 40px; /* Espai moderat entre logos */
-        justify-content: center; 
+        gap: 4vw; /* Espai moderat entre logos */
+        justify-content: space-between;
+        margin: 0 auto;
+        align-items: center;
+        flex-wrap: nowrap;
+          
     }
 
     /* Ajustar la mida dels logos en tablet */
     .footer-logo {
         width: 6vw;
+        max-width: 100px;
+        min-width: none;
         justify-content: center; /* Mida proporcional a la finestra en tablet */
     }
 
