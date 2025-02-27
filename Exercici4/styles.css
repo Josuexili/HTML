@@ -1,14 +1,14 @@
 html, body {
-    overflow-x: hidden; /* Desactiva el desplaçament horitzontal */
+    overflow-x: hidden; 
 }
 
 .header {
    
-    background-image: url('imatges/intro.jpg'); /* Canvia el nom del fitxer si cal */
+    background-image: url('imatges/intro.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh; /* Ajusta l'alçada segons necessitis */
+    height: 100vh; 
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -23,28 +23,28 @@ h1 {
 }
 
 .header h1 {
-    font-size: 5vw; /* S'ajusta a l'amplada de la pantalla */
+    font-size: 5vw;
     font-family: 'Cormorant Unicase', cursive;
-    margin-left: 5vw; /* Aproximadament igual que 10vw a la pantalla */
-    margin-top: -33vh; /* Aproximadament equivalent a -300px però amb unitats relatives */
+    margin-left: 5vw; 
+    margin-top: -33vh; 
     text-align: left;
     display: inline-block;
     text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
 }
 @media (min-width: 576px) { 
     .nom-petit {
-        display: block; /* Fa que "Vallhonesta" baixi a una línia nova */
+        display: block; 
     }
 }
 @media (min-width: 576px) and (max-width: 991px) {
     .header {
-        justify-content: left; /* Alinea el contingut a l'esquerra per a pantalles mitjanes */
+        justify-content: left;
        
     }
     .header h1 {
-        font-size: 5.5vw; /* Mida lleugerament més gran per a pantalles mitjanes */
-        margin-left: 4vw; /* Similar a 5vw però una mica més gran */
-        margin-right: 7vw; /* Afegim més espai a la dreta */
+        font-size: 5.5vw; 
+        margin-left: 4vw; 
+        margin-right: 7vw; 
     }
     
     
@@ -55,13 +55,13 @@ h1 {
     
     .header h1 {
         text-shadow: 10px 10px 20px rgba(0, 0, 0, 0.7);
-        font-size: 7vw; /* Mida una mica més gran per a pantalles petites */
-        margin-left: 5vw; /* Reduïm més el margin esquerre */
-        margin-right: 2vw; /* Afegim una mica de margin a la dreta */
-        margin-top: -75vh; /* Ajustem el desplaçament superior amb unitats relatives */
+        font-size: 7vw; 
+        margin-left: 5vw; 
+        margin-right: 2vw; 
+        margin-top: -75vh; 
     }
     .nom-petit {
-        display: inline; /* Manté el text en la mateixa línia */
+        display: inline; 
     }
 }
 
@@ -69,7 +69,7 @@ h1 {
 
 
 
-/* Estils generals */
+
 
 body {
     font-family: 'Arial', sans-serif;
@@ -130,7 +130,7 @@ body {
 }
 
 .logo-link:hover {
-    background-color: transparent; /* Evita qualsevol canvi de color */
+    background-color: transparent; 
 }
 
 .navbar-menu {
@@ -157,61 +157,59 @@ body {
 .navbar-menu a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-/* Mòbil petit (<576px) */
+
 @media (max-width: 575px) {
     .navbar-logo {
-        display: none; /* Amaguem els logos en mòbil */
+        display: none; 
     }
     body {
         background-image: none;
         
-        background-color: #cac5c5; /* Color de fons gris clar, pots canviar-ho */
+        background-color: #cac5c5; 
         
         
     }
 
     .navbar-menu {
         display: flex;
-        flex-wrap: nowrap; /* Evita que es trenqui la línia */
-        justify-content: space-between; /* Distribueix millor els elements */
+        flex-wrap: nowrap;
+        justify-content: space-between; 
         width: 100%;
     }
 
     .navbar-menu li {
         margin: 0;
-        flex-grow: 1; /* Fa que tots els elements ocupin el mateix espai */
-        text-align: center; /* Centrem el text */
+        flex-grow: 1; 
+        text-align: center; 
     }
 
     .navbar-menu a {
-        font-size: 3vw; /* Reduïm la mida de la font proporcionalment */
-        padding: 5px; /* Reduïm el padding per estalviar espai */
-        white-space: nowrap; /* Evitem que el text es trenqui en dues línies */
+        font-size: 3vw; 
+        padding: 5px; 
+        white-space: nowrap; 
     }
 }
 
 
-/* Tablet (576px a 992px) */
 @media (min-width: 576px) and (max-width: 991px) {
     body {
         background-image: none;
-        background-color: #cac5c5; /* Color de fons gris clar, pots canviar-ho */
+        background-color: #cac5c5; 
 
     }
     .navbar-logo {
-        display: flex; /* Mostrem els logos en dispositius tablet */
+        display: flex; 
     }
 
     .navbar-menu a {
-        font-size: 2vw; /* Fes les lletres més petites si cal */
+        font-size: 2vw; 
         padding: 1vw 1vw;
     }
 }
 
-/* Pantalla PC (>992px) */
 @media (min-width: 992px) {
     .navbar-logo {
-        display: flex; /* Mostrem els logos en pantalles de PC */
+        display: flex; 
     }
 
     .navbar-menu a {
@@ -222,13 +220,12 @@ body {
 
 
 
-/* Seccions */
+
 .section {
     padding: 2vw 2vw 2vw 2vw;
     margin-top: 1.5vw;
 }
 
-/* Galeria de fotos */
 .photo-gallery {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -248,9 +245,9 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* Estils per al modal */
+
 .modal {
-    display: none; /* El modal està ocult per defecte */
+    display: none; 
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -318,17 +315,17 @@ body {
 
 
 
-/* Galeria de panorames (3 per fila) */
+
 .panorama-gallery {
     display: grid;
-    justify-content: center;  /* Centra los elementos dentro del contenedor */
-    grid-template-columns: repeat(2, 1fr);  /* 2 imágenes por fila */
-    gap: 2vw;  /* Espacio entre las imágenes */
+    justify-content: center; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 2vw; 
     margin-top: 2vw;
-    width: 100%;  /* Ocupa el 100% del ancho disponible */
-    max-width: 1200px;  /* Limita el ancho máximo de la galería */
-    margin-left: auto;  /* Centra la galería horizontalmente */
-    margin-right: auto;  /* Centra la galería horizontalmente */
+    width: 100%;  
+    max-width: 1200px;  
+    margin-left: auto;  
+    margin-right: auto;  
 }
 
 
@@ -340,7 +337,7 @@ body {
     overflow: hidden;
 }
 .panorama-item:active {
-    cursor: grabbing; /* Cambia el cursor cuando el usuario arrastra */
+    cursor: grabbing; 
 }
 @media (max-width: 575px) {
 .photo-gallery{
@@ -363,10 +360,6 @@ body {
 
 }
 
-
-
-/* Estils per a la secció d'Història */
-
 .llibrefons {
     position: relative;
     width: 100%;
@@ -381,17 +374,17 @@ body {
    z-index: 0;
    
 }
-/* Estil per a la imatge en pantalles grans */
+
 .image-large {
-    display: block; /* Per defecte, es mostra en pantalles grans */
+    display: block; 
     width: 100%;
     height: auto;
     object-fit: cover;
 }
 
-/* Estil per a la imatge en pantalles petites */
+
 .image-small {
-    display: none; /* Per defecte, no es mostra en pantalles grans */
+    display: none; 
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -423,7 +416,7 @@ body {
     z-index: 1;
 }
 
-/* Text sobre la imatge */
+
 #historia p {
     font-family:'times new roman';
     position: absolute;
@@ -444,25 +437,24 @@ body {
 
 
 
-/* Mòbil petit */
-/* Mòbil petit (<576px) */
+
 @media (max-width: 575px) {
-    /* Canviar imatge per a mòbils */
+    
     #historia img {
         height: 235vw;
     }
 
     .image-large {
-        display: none; /* Ocultar imatge gran */
+        display: none;
     }
 
     .image-small {
-        display: block; /* Mostrar imatge petita */
+        display: block; 
     }
 
-    /* Més petitesa a la lletra per a dispositius mòbils */
+
     #historia h2 {
-        font-size: 4.4vw; /* Reduïm la mida de la lletra del títol */
+        font-size: 4.4vw; 
         top: 2%;
         right: 2%;
         left: 2%;
@@ -473,97 +465,94 @@ body {
         right: 3%;
         left: 3%;
         column-count: 1;
-        font-size: 3.4vw; /* Reduïm la mida de la lletra del text */
+        font-size: 3.4vw; 
     }
 }
 
-/* Tablet (576px a 991px) */
+
 @media (min-width: 576px) and (max-width: 991px) {
    
     #historia h2 {
-        font-size: 1.5rem; /* Mida mitjana per a tablet */
+        font-size: 1.5rem; 
     }
     #historia p {
         column-count: 1;
-        font-size: 2vw; /* Mida mitjana per al text en tablet */
+        font-size: 2vw; 
     }
     .image-large {
-        display: none; /* Ocultar imatge gran */
+        display: none; 
     }
 
     .image-small {
         display: block;
-         /* Mostrar imatge petita */
+        
     }
 }
 
-/* Estilització per a la secció del mapa */
 #com-arribar {
-    margin-bottom: 30px; /* Afegim espai per separar la secció del mapa de la següent */
+    margin-bottom: 30px; 
 }
-/* Estils generals del mapa */
+
 .map-container iframe {
     width: 100%;
-    height: 300px; /* Altura per defecte */
+    height: 300px;
     border: none;
 }
 
-/* Mòbil petit (<576px) */
+
 @media (max-width: 575px) {
     .map-container iframe {
-        height: 200px; /* Mapa més petit en mòbils */
+        height: 200px; 
     }
 
 }
 
-/* Tablet (576px a 992px) */
 @media (min-width: 576px) and (max-width: 991px) {
     .map-container iframe {
-        height: 250px; /* Mapa una mica més petit en tablets */
+        height: 250px; 
     }
     
 }
 
-/* Pantalla PC (>992px) */
 @media (min-width: 992px) {
     .map-container iframe {
-        height: 300px; /* Mapa a mida normal en pantalles grans */
+        height: 300px; 
     }
     
 }
 
-/* Estilització per a la secció d'enllaços recomanats alineada a l'esquerra */
+
 #enllacos {
-    margin-left: 2vw;         /* Afegim una distància des de l'esquerra */
-    margin-top: 3vh;          /* Afegim una distància des de la part superior */
-    padding: 1vw;             /* Afegim una mica de marge intern */
+    margin-left: 2vw;        
+    margin-top: 3vh;         
+    padding: 1vw;            
 }
 
 #enllacos h2 {
-    font-size: 1.5rem;         /* Mida del títol */
-    margin-bottom: 1.5vw;       /* Espai inferior entre el títol i la llista */
+    font-size: 1.5rem;         
+    margin-bottom: 1.5vw;       
 }
 
 #enllacos ul {
-    list-style-type: none;     /* Elimina els punts de la llista */
+    list-style-type: none;     
     padding: 0;
-    display: grid;             /* Utilitzem grid per col·locar els elements */
-    grid-template-columns: repeat(3, 1fr); /* 3 enllaços per fila */
-    gap: 10px;                 /* Espai entre els enllaços */
+    display: grid;            
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px;                
 }
 
 #enllacos ul li {
-    margin-bottom: 10px;       /* Espai entre els enllaços */
+    margin-bottom: 10px;       
 }
 
 #enllacos ul li a {
-    color: #1e67dd;            /* Color dels enllaços */
-    text-decoration: none;     /* Elimina la subratllat dels enllaços */
-    font-size: 1rem;           /* Mida de la font */
+    color: #1e67dd;            
+    text-decoration: none;     
+    font-size: 1rem;          
 }
 
 #enllacos ul li a:hover {
-    text-decoration: underline; /* Subratllat quan el cursor passa per sobre */
+    text-decoration: underline;
 }
 
 
@@ -572,7 +561,7 @@ body {
 /* Footer */
 .footer {
     width: 100%;
-    background-color: rgba(51, 51, 51, 0.7); /* Fons similar al menú */
+    background-color: rgba(51, 51, 51, 0.7);
     padding: 5px 10px;
     box-sizing: border-box;
     color: white;
@@ -595,12 +584,12 @@ body {
 }
 .footer-text h6:nth-child(2),
 .footer-text h6:nth-child(3) {
-    text-indent: 20px; /* Tabula aquests dos elements */
+    text-indent: 20px; 
 }
 
 .footer-text h6 {
     margin: 0.5vw 0;
-    font-size: 0.8rem; /* Font més petita per defecte */
+    font-size: 0.8rem; 
     line-height: 1.5;
   
 }
@@ -608,19 +597,19 @@ body {
 .footer-images {
     margin: 0 auto;
     display: flex;
-    justify-content: space-between; /* Centra els logos a la pantalla */
+    justify-content: space-between; 
     align-items: center;
-    gap: 5vw; /* Espai proporcional a l'ample de la pantalla */
-    flex-wrap: wrap; /* Permet que els logos baixin de línia si cal */
-    width: 75%; /* Assegura que ocupi tot l'ample disponible */
+    gap: 5vw; 
+    flex-wrap: wrap; 
+    width: 75%; 
 }
 
 
 
 .footer-logo {
-    width: 8vw; /* Proporcional a l'amplada de la finestra */
-    max-width: 120px; /* Màxim per evitar que sigui massa gran */
-    min-width: 80px; /* Mínim per evitar que sigui massa petit */
+    width: 8vw;
+    max-width: 120px; 
+    min-width: 80px; 
     height: auto;
     object-fit: contain;
     border-radius: 10px;
@@ -631,32 +620,30 @@ body {
     background-color: transparent;
 }
 .footer-logo-primer {
-    width: 6vw; /* Menor mida proporcional per al logo del mig */
-    max-width: 60px; /* Límit superior de mida */
-    min-width: 50px; /* Límit inferior de mida */
+    width: 6vw; 
+    max-width: 60px; 
+    min-width: 50px; 
 }
 
 .footer-logo:hover {
     transform: scale(1.1);
 }
 
-/* Només el tercer logo amb fons blanc */
+
 .footer-logo.white-background {
     background-color: white;
     padding: 5px;
     box-sizing: border-box;
 }
 
-/* Media Queries per a Footer */
 
-/* Mòbil petit (<576px) */
 @media (max-width: 575px) {
-    /* Reduir la mida del footer proporcionalment */
+   
     .footer {
-        padding: 15px 10px; /* Més petit en mòbil */
+        padding: 15px 10px;
     }
 
-    .footer-images { /* Menys espai entre logos */
+    .footer-images { 
         padding: 0 15%;
         justify-content: space-between; 
         align-items: center;
@@ -664,35 +651,33 @@ body {
         margin: 0 auto;
     }
 
-    /* Ajustar la mida dels logos en mòbil */
+   
     .footer-logo {
         width: 15vw;
         max-width: 50px;
         gap: 4vw;
-        margin-left: 5px; /* Añade margen izquierdo */
+        margin-left: 5px; 
         margin-right: 5px;
-        /* Menor mida dels logos en mòbil */
+        
     }
 
-    /* Amagar agraïments especials en mòbil */
     .footer-text {
         display: none;
     }
 }
 
-/* Tablet (576px a 992px) */
 @media (min-width: 576px) and (max-width: 991px) {
-    /* Reduir la mida del footer proporcionalment */
+   
     .footer {
-        padding: 20px 15px; /* Reducció moderada en tablet */
+        padding: 20px 15px; 
     }
 
     .footer-text h6 {
-        font-size: 0.9rem; /* Font més petita en tablet */
+        font-size: 0.9rem; 
     }
 
     .footer-images {
-        gap: 4vw; /* Espai moderat entre logos */
+        gap: 4vw; 
         justify-content: space-between;
         margin: 0 auto;
         padding: 0 5%;
@@ -701,47 +686,33 @@ body {
           
     }
 
-    /* Ajustar la mida dels logos en tablet */
+   
     .footer-logo {
         width: 6vw;
         max-width: 100px;
         min-width: none;
-        justify-content: center; /* Mida proporcional a la finestra en tablet */
+        justify-content: center;
     }
 
-    /* Amagar text en tablet */
+   
     .footer-text {
         display: none;
     }
 }
 
-/* Pantalla PC (>992px) */
 @media (min-width: 992px) {
-    .footer {
-       
-    }
-
-    .footer-text h6 {
-       /* Font més gran per a PC */
-    }
-
     .footer-images {
-        gap: 60px; /* Espai més gran entre logos */
+        gap: 60px;
     }
-
-    .footer-logo {
-       /* Límit inferior de mida */
-    }
-
-    /* Mostrar els agraïments en PC */
+   
     .footer-text {
         display: block;
     }
 }
-/* Segundo footer - Información del creador */
+
 .footer-secondary {
     width: 100%;
-    background-color: rgba(51, 51, 51, 0.8); /* Color similar al footer principal */
+    background-color: rgba(51, 51, 51, 0.8); 
     text-align: center;
     padding: 3px 0;
     font-size: 0.6rem;
