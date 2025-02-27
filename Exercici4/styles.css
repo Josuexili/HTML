@@ -658,12 +658,14 @@ body {
     .footer-images {
         gap: 20px; /* Menys espai entre logos */
         justify-content: center; 
+        align-items: center;
     }
 
     /* Ajustar la mida dels logos en mòbil */
     .footer-logo {
         width: 50px;
-        max-width: 60px; /* Menor mida dels logos en mòbil */
+        max-width: 60px;
+        justify-content: space-around; /* Menor mida dels logos en mòbil */
     }
 
     /* Amagar agraïments especials en mòbil */
