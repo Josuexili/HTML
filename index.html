@@ -1,15 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Josuè González</title>
+    <meta autor="Josuè González" />
+    <meta name="description" content="Portafolis Josuè González" />
+    <meta name="keywords" content="HTML, CSS, Bootstrap, JavaScript, DAM, web, software" />
+    <title>Josuè González | Software Developer</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="fotos/pepinillo.jpg" type="image/x-icon">
+    
+
+
+    <!-- Bootstrap CSS i icones -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Arxiu CSS separat -->
 </head>
 <body>
-    <h1>Josuè González</h1>
-    <a href="./Exercici1/index.html" > Exercici 1 </a>
-    <a href="./Exercici2/index.html" > Exercici 2 </a>
-    <a href="./Exercici3/index.html" > Exercici 3 </a>
-    <a href="./Exercici4/index.html" > Exercici 4 </a>
+
+    <!-- Barra de Navegació -->
+    <nav class="navbar navbar-expand-md">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="fotos/pngegg.png" alt="icona" width="50"/>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav d-flex justify-content-center align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#sobremi">About me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#webdesign">Web design</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacte">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Secció Hero -->
+    <section class="text-center">
+        <div>
+            <img src="fotos/pepinillo.jpg" width="400"/>
+
+            <h1>Josuè González</h1>
+            <h2>Student of software development</h2>
+        </div>
+    </section>
+
+    <!-- Secció Sobre Mi -->
+    <section id="sobremi" class="about-me dark-section">
+        <div>
+            <h2 class="section-title">More about me</h2>
+            <p class="section-text">Lorem ipsum dolor sit amet consectetur...</p>
+            <div class="text-center">
+                <a href="document.pdf" download class="btn btn-primary btn-lg btn-responsive">📄 Download CV</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secció Experiència -->
+    <section class="projectes white-section d-flex flex-column">
+        <h2 class="section-title black-text">Web Design</h2>
+        <h3 class="section-description">Some web projects developed in the DAM cycle </h3>
+        <!--galeria de projectes-->
+        <div class="container text-center projectes-container">
+          <div class="row">
+           <!--projecte 1-->
+            <div class="projecte col-12 col-md-6 col-lg-4">
+                 <img src="fotos/Projecte1.jpg" alt="projecte 1"/>
+                <div class="overlay">
+                  <p>Botiga de música</p>
+                  <div class="icones-contenidor">
+                    <a href="Exercici1/index.html" target="_blank" rel="noopener noreferrer">
+                      <i class="bi bi-laptop"></i>
+                    </a>
+                  </div>
+               </div>
+            </div>
+            <div class="projecte col-12 col-md-6 col-lg-4">
+                <img src="fotos/projecte2.png" alt="projecte 2"/>
+               <div class="overlay">
+                 <p>Slipknot </p>
+                 <div class="icones-contenidor">
+                   <a href="Exercici2/index.html" target="_blank" rel="noopener noreferrer">
+                     <i class="bi bi-laptop"></i>
+                   </a>
+                 </div>
+              </div>
+           </div>
+           <div class="projecte col-12 col-md-6 col-lg-4">
+            <img src="fotos/projecte3.png" alt="projecte 3"/>
+           <div class="overlay">
+             <p>Joan Cornellà</p>
+             <div class="icones-contenidor">
+               <a href="Exercici3/index.html" target="_blank" rel="noopener noreferrer">
+                 <i class="bi bi-laptop"></i>
+               </a>
+             </div>
+          </div>
+       </div>
+       <div class="projecte col-12 col-md-6 col-lg-4">
+        <img src="fotos/Projecte1.jpg" alt="projecte 4"/>
+       <div class="overlay">
+         <p>Vallhonesta</p>
+         <div class="icones-contenidor">
+           <a href="Exercici4/index.html" target="_blank" rel="noopener noreferrer">
+             <i class="bi bi-laptop"></i>
+           </a>
+         </div>
+      </div>
+   </div>
+   <div class="projecte col-12 col-md-6 col-lg-4">
+    <img src="fotos/projecte2.png" alt="projecte 5"/>
+   <div class="overlay">
+     <p>fuck</p>
+     <div class="icones-contenidor">
+       <a href="https://www.lamevaweb1.html/" target="_blank" rel="noopener noreferrer">
+         <i class="bi bi-laptop"></i>
+       </a>
+     </div>
+  </div>
+</div>
+<div class="projecte col-12 col-md-6 col-lg-4">
+    <img src="fotos/pngwing.com.png" alt="projecte 1"/>
+   <div class="overlay">
+     <p>fuck</p>
+     <div class="icones-contenidor">
+       <a href="https://www.lamevaweb1.html/" target="_blank" rel="noopener noreferrer">
+         <i class="bi bi-laptop"></i>
+       </a>
+     </div>
+  </div>
+</div>
+          </div>
+        </div>
+      </section>
+    <section class="video">
+        <iframe src="https://www.youtube.com/embed/" frameborder="0" allowfullscreen></iframe>
+    </section>
+    
+    
+        <!-- Secció Contacte (Footer) -->
+            <!--section contacte-->
+    <footer class="dark-section d-flex flex-column align-items-center justify-content-center">
+        <img class="footer-logo" src="fotos/Designer.jpeg" alt="logo"/>
+        <p class="footer-text text-center">Contact me</p>
+        <div class= "social-icons d-flex flex-wrap align-items-center justify-content-center">
+          <a href="mail to: josue.gonzalez.santacreu@gmail.com" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-envelope"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/josu%C3%A8-gonz%C3%A1lez-3aa639339/" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/Josuexili" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-github"></i>
+          </a>
+        </div>
+        <div class="drets">Created by Josuè González Santacreu (2025) &#169;</div>
+      </footer>
+  
+       
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

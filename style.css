@@ -1,0 +1,204 @@
+/* Personalitzacions generals */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 1rem; /* Tamaño base de fuente */
+    padding-bottom: 3vw;
+}
+
+/* Barra de navegació */
+.navbar {
+    background-color: aqua;
+    padding: 1.5vw 2vw; /* Padding ajustado con unidades responsivas */
+}
+
+.navbar-nav .nav-link {
+    color: rgb(0, 0, 0) !important;
+    text-transform: uppercase;
+    font-size: 1rem; /* Tamaño de fuente responsivo */
+}
+
+/* Secció Experiència */
+.white-section {
+    padding: 5vw; /* Espaciado responsivo */
+}
+
+.experiencia-title {
+    font-size: clamp(1rem, 2.5vw, 3.125rem); /* Tamaño de fuente adaptado */
+    font-weight: bold;
+}
+
+.badge, .badge-rainbow {
+    font-size: 0.875rem; /* Tamaño de fuente consistente */
+    font-weight: bold;
+    padding: 0.375rem 0.75rem; /* Padding responsivo */
+    display: inline-block;
+    text-align: center;
+}
+
+.badge-rainbow {
+    background: linear-gradient(90deg, 
+        #ff6666, /* Vermell más suave */
+        #ff9966, /* Taronja más suave */
+        #ffff66, /* Groc más suave */
+        #66cc66, /* Verd más suave */
+        #6699ff, /* Blau más suave */
+        #9966cc, /* Índigo más suave */
+        #cc66cc  /* Violeta más suave */
+    );
+    color: black; /* Letras negras */
+}
+
+.experience i {
+    font-size: clamp(1rem, 2vw, 3.125rem); /* Ajuste del tamaño de iconos */
+    color: #7ade30;
+    background-color: #0a0a23;
+    padding: 0.5rem 1.2rem; /* Padding responsivo */
+    border-radius: 50%;
+}
+
+.experience .columna {
+    padding: 2vw;
+    background-color: #dadada; /* Fondo gris claro */
+    border: 0.125rem solid rgba(128, 128, 128, 0.3); /* Borde gris suave */
+    transition: all 0.3s ease-in-out; /* Transición suave para los cambios */
+}
+
+.experience .columna:hover {
+    background-color: #ffffff; /* Fondo más claro al pasar el ratón */
+    border: 0.125rem solid #7ade30; /* Borde verde al hacer hover */
+    color: #333; /* Color de texto más oscuro para un contraste más fuerte */
+}
+
+
+/* Projectes */
+/*projectes-------------------------------------------------------*/
+.projectes {
+    padding: 40px;
+  }
+  
+  .projectes-container {
+    padding-top: 60px;
+    margin-bottom: 40px;
+
+    
+  }
+  
+  .projecte {
+    position: relative;
+    overflow: hidden; /* Per evitar que les imatges surtin fora del contenidor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Fixa una alçada comuna per a tots els projectes */
+    padding-top: 30px;
+  }
+  
+  .projectes img {
+    width: 100%;  /* L'amplada de la imatge ocupa tot l'ample del contenidor */
+    height: 100%; /* L'alçada de la imatge ocupa tot l'espai del contenidor */
+    object-fit: cover; /* Fixa la imatge per cobrir l'espai sense distorsionar-la */
+    object-position: center; /* Centra la imatge dins del contenidor */
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .overlay {
+    transition: all 0.3s ease;
+    opacity: 0;  /* La capa està invisible per defecte */
+    position: absolute;
+    top: 50%; /* Centra verticalment la capa */
+    left: 50%; /* Centra horitzontalment la capa */
+    transform: translate(-50%, -50%);  
+    text-align: center;
+  }
+  
+  .overlay p {
+    font-size: clamp(14px, 2.5vw, 30px); /* Defineix un tamany òptim per a la font */
+    margin-bottom: 0;
+  }
+  
+  .projecte:hover img {
+    opacity: 0.2;
+  }
+  
+  .projecte:hover .overlay {
+    opacity: 1;
+  }
+  
+  .overlay .icones-contenidor {
+    display: flex;
+    flex-direction: column; /* Alinea els continguts de manera vertical */
+    justify-content: center; /* Centrat vertical */
+    align-items: center; /* Centrat horitzontal */
+  }
+  
+  .overlay i {
+    color: black;
+    font-size: 60px;
+    margin: 10px;
+  }
+  
+
+.video{
+    position: relative;
+    width: 100%; /* Ajusta el div a l'ample que necessitis */
+    padding-top: 56.25%; /* Això manté una relació 16:9 (9 / 16 * 100) */
+  }
+  
+  
+  .video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+/*footer-------------------------------------------------------*/
+footer {
+    min-height: 500px;
+    background-color: #000000;
+    color: #dadada;
+  }
+  
+  
+  .footer-logo {
+    height: 80px;
+    width: 80px;
+    margin: 10px;
+  }
+  
+  
+  .footer-text {
+    padding: 20px;
+    margin-bottom: 30px;
+    font-size:clamp(14px,2.5vw,50px); /*defineix el tamany mínim, màxim i òptim de la font*/    
+    font-family:"Vast Shadow"; /*font de la capçalera*/
+  }
+  
+  
+  .social-icons a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    margin: 10px;
+    border: 2px solid white;
+    border-radius: 50%;
+    transition: all 0.2s ease-in;
+  }
+  
+  
+  .social-icons i {
+    color: greenyellow;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in;
+  }
+
+@media screen and (max-width: 768px) {
+    .navbar-brand {
+        display: none;
+    }
+}
