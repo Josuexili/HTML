@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html>
+<style>
+    body {
+        background-color: rgba(55, 141, 42, 255);
+
+    }
+
+    .contenidor {
+        background-color: rgba(55, 141, 42, 255);
+        height: 70vh;
+        width: 90%;
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 10px;
+        margin: 20px;
+    }
+
+
+    .contenidor .caixa {
+        background-color: rgba(55, 141, 42, 255);
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+
+
+    .contenidor .caixa img {
+        background-color: rgba(55, 141, 42, 255);
+        width: 100%;
+        height: 100%;
+        visibility: hidden;
+        object-fit: cover;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+
+    .temps {
+
+        font-size: 2vw;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(to left, rgb(61, 191, 85), #deb309);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 90%;
+        margin: 0 auto 20px auto;
+    }
+
+   
+
+    .contenidorTemps {
+        text-align: left;
+        margin-left: 20%;
+
+    }
+    .contenidorStart {
+        text-align: center;
+
+
+    }
+
+    .contenidorPunts {
+        text-align: right;
+        margin-right: 20%;
+
+    }
+
+    .start {
+        display: flex;
+    }
+</style>
+
+<body>
+
+    <div class="temps">
+
+        <div class="contenidorTemps" id="contenidorTemps">
+             <span id="tempsRestant">10</span>
+        </div>
+        <div class="contenidorStart" id="contenidorStart">
+            <button id="starter" onclick="startGame()">Start</button>
+        </div>
+
+        <div class="contenidorPunts" id="contenidorPunts">
+             <span id="punts">0</span>
+        </div>
+    </div>
+    <div class="contenidor">
+
+        <div class="caixa" id="caixa1">
+            <img id="topoNo1" src="imatges/topoNo.jpg" alt="topo 1" onclick="colpeja(this)">
+            <img id="topoSi1" src="imatges/topoSi.jpg" alt="topo 1" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa2">
+            <img id="topoNo2" src="imatges/topoNo.jpg" alt="topo 2" onclick="colpeja(this)">
+            <img id="topoSi2" src="imatges/topoSi.jpg" alt="topo 2" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa3">
+            <img id="topoNo3" src="imatges/topoNo.jpg" alt="topo 3" onclick="colpeja(this)">
+            <img id="topoSi3" src="imatges/topoSi.jpg" alt="topo 3" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa4">
+            <img id="topoNo4" src="imatges/topoNo.jpg" alt="topo 4" onclick="colpeja(this)">
+            <img id="topoSi4" src="imatges/topoSi.jpg" alt="topo 4" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa5">
+            <img id="topoNo5" src="imatges/topoNo.jpg" alt="topo 5" onclick="colpeja(this)">
+            <img id="topoSi5" src="imatges/topoSi.jpg" alt="topo 5" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa6">
+            <img id="topoNo6" src="imatges/topoNo.jpg" alt="topo 6" onclick="colpeja(this)">
+            <img id="topoSi6" src="imatges/topoSi.jpg" alt="topo 6" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa7">
+            <img id="topoNo7" src="imatges/topoNo.jpg" alt="topo 7" onclick="colpeja(this)">
+            <img id="topoSi7" src="imatges/topoSi.jpg" alt="topo 7" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa8">
+            <img id="topoNo8" src="imatges/topoNo.jpg" alt="topo 8" onclick="colpeja(this)">
+            <img id="topoSi8" src="imatges/topoSi.jpg" alt="topo 8" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa9">
+            <img id="topoNo9" src="imatges/topoNo.jpg" alt="topo 9" onclick="colpeja(this)">
+            <img id="topoSi9" src="imatges/topoSi.jpg" alt="topo 9" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa10">
+            <img id="topoNo10" src="imatges/topoNo.jpg" alt="topo 10" onclick="colpeja(this)">
+            <img id="topoSi10" src="imatges/topoSi.jpg" alt="topo 10" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa11">
+            <img id="topoNo11" src="imatges/topoNo.jpg" alt="topo 11" onclick="colpeja(this)">
+            <img id="topoSi11" src="imatges/topoSi.jpg" alt="topo 11" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa12">
+            <img id="topoNo12" src="imatges/topoNo.jpg" alt="topo 12" onclick="colpeja(this)">
+            <img id="topoSi12" src="imatges/topoSi.jpg" alt="topo 12" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa13">
+            <img id="topoNo13" src="imatges/topoNo.jpg" alt="topo 13" onclick="colpeja(this)">
+            <img id="topoSi13" src="imatges/topoSi.jpg" alt="topo 13" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa14">
+            <img id="topoNo14" src="imatges/topoNo.jpg" alt="topo 14" onclick="colpeja(this)">
+            <img id="topoSi14" src="imatges/topoSi.jpg" alt="topo 14" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa15">
+            <img id="topoNo15" src="imatges/topoNo.jpg" alt="topo 15" onclick="colpeja(this)">
+            <img id="topoSi15" src="imatges/topoSi.jpg" alt="topo 15" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa16">
+            <img id="topoNo16" src="imatges/topoNo.jpg" alt="topo 16" onclick="colpeja(this)">
+            <img id="topoSi16" src="imatges/topoSi.jpg" alt="topo 16" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa17">
+            <img id="topoNo17" src="imatges/topoNo.jpg" alt="topo 17" onclick="colpeja(this)">
+            <img id="topoSi17" src="imatges/topoSi.jpg" alt="topo 17" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa18">
+            <img id="topoNo18" src="imatges/topoNo.jpg" alt="topo 18" onclick="colpeja(this)">
+            <img id="topoSi18" src="imatges/topoSi.jpg" alt="topo 18" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa19">
+            <img id="topoNo19" src="imatges/topoNo.jpg" alt="topo 19" onclick="colpeja(this)">
+            <img id="topoSi19" src="imatges/topoSi.jpg" alt="topo 19" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa20">
+            <img id="topoNo20" src="imatges/topoNo.jpg" alt="topo 20" onclick="colpeja(this)">
+            <img id="topoSi20" src="imatges/topoSi.jpg" alt="topo 20" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa21">
+            <img id="topoNo21" src="imatges/topoNo.jpg" alt="topo 21" onclick="colpeja(this)">
+            <img id="topoSi21" src="imatges/topoSi.jpg" alt="topo 21" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa22">
+            <img id="topoNo22" src="imatges/topoNo.jpg" alt="topo 22" onclick="colpeja(this)">
+            <img id="topoSi22" src="imatges/topoSi.jpg" alt="topo 22" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa23">
+            <img id="topoNo23" src="imatges/topoNo.jpg" alt="topo 23" onclick="colpeja(this)">
+            <img id="topoSi23" src="imatges/topoSi.jpg" alt="topo 23" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa24">
+            <img id="topoNo24" src="imatges/topoNo.jpg" alt="topo 24" onclick="colpeja(this)">
+            <img id="topoSi24" src="imatges/topoSi.jpg" alt="topo 24" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa25">
+            <img id="topoNo25" src="imatges/topoNo.jpg" alt="topo 25" onclick="colpeja(this)">
+            <img id="topoSi25" src="imatges/topoSi.jpg" alt="topo 25" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa26">
+            <img id="topoNo26" src="imatges/topoNo.jpg" alt="topo 26" onclick="colpeja(this)">
+            <img id="topoSi26" src="imatges/topoSi.jpg" alt="topo 26" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa27">
+            <img id="topoNo27" src="imatges/topoNo.jpg" alt="topo 27" onclick="colpeja(this)">
+            <img id="topoSi27" src="imatges/topoSi.jpg" alt="topo 27" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa28">
+            <img id="topoNo28" src="imatges/topoNo.jpg" alt="topo 28" onclick="colpeja(this)">
+            <img id="topoSi28" src="imatges/topoSi.jpg" alt="topo 28" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa29">
+            <img id="topoNo29" src="imatges/topoNo.jpg" alt="topo 29" onclick="colpeja(this)">
+            <img id="topoSi29" src="imatges/topoSi.jpg" alt="topo 29" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa30">
+            <img id="topoNo30" src="imatges/topoNo.jpg" alt="topo 30" onclick="colpeja(this)">
+            <img id="topoSi30" src="imatges/topoSi.jpg" alt="topo 30" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa31">
+            <img id="topoNo31" src="imatges/topoNo.jpg" alt="topo 31" onclick="colpeja(this)">
+            <img id="topoSi31" src="imatges/topoSi.jpg" alt="topo 31" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa32">
+            <img id="topoNo32" src="imatges/topoNo.jpg" alt="topo 32" onclick="colpeja(this)">
+            <img id="topoSi32" src="imatges/topoSi.jpg" alt="topo 32" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa33">
+            <img id="topoNo33" src="imatges/topoNo.jpg" alt="topo 33" onclick="colpeja(this)">
+            <img id="topoSi33" src="imatges/topoSi.jpg" alt="topo 33" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa34">
+            <img id="topoNo34" src="imatges/topoNo.jpg" alt="topo 34" onclick="colpeja(this)">
+            <img id="topoSi34" src="imatges/topoSi.jpg" alt="topo 34" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa35">
+            <img id="topoNo35" src="imatges/topoNo.jpg" alt="topo 35" onclick="colpeja(this)">
+            <img id="topoSi35" src="imatges/topoSi.jpg" alt="topo 35" onclick="colpeja(this)">
+        </div>
+        <div class="caixa" id="caixa36">
+            <img id="topoNo36" src="imatges/topoNo.jpg" alt="topo 36" onclick="colpeja(this)">
+            <img id="topoSi36" src="imatges/topoSi.jpg" alt="topo 36" onclick="colpeja(this)">
+        </div>
+    </div>
+
+
+    <script>
+        let punts = 0;
+        let temporitzador;
+        let jocContinu;
+
+        function startGame() {
+            punts = 0;
+            mostraTopos();
+            document.getElementById("starter").disabled = true;
+            document.getElementById("starter").style.visibility = "hidden";
+            document.getElementById("punts").innerHTML = punts;
+            document.getElementById("tempsRestant").innerHTML = "10";  // Reiniciar el temps a 10 segons
+            temporitzador = setInterval(actualitzaTemps, 1000);
+            jocContinu = setInterval(mostraTopos, 1000);
+        }
+
+        function endGame() {
+            document.getElementById("starter").disabled = false;
+            document.getElementById("starter").style.visibility = "visible";
+            clearInterval(temporitzador);
+            clearInterval(jocContinu);
+
+            // Amagar tots els topos
+            for (let i = 1; i <= 36; i++) {
+                document.getElementById(`topoNo${i}`).style.visibility = "hidden";
+                document.getElementById(`topoSi${i}`).style.visibility = "hidden";
+            }
+
+            document.getElementById("tempsRestant").innerHTML = "Joc Finalitzat!!";
+            alert("El joc ha acabat! El teu resultat és: " + punts + " punts.");
+        }
+
+        function mostraTopos() {
+            // Ocultar tots els topos
+            for (let i = 1; i <= 36; i++) {
+                document.getElementById(`topoNo${i}`).style.visibility = "hidden";
+                document.getElementById(`topoSi${i}`).style.visibility = "hidden";
+                document.getElementById(`topoSi${i}`).src = "imatges/topoSi.jpg";
+                document.getElementById(`topoNo${i}`).src = "imatges/topoNo.jpg";
+            }
+
+            let countSi = 0;
+            while (countSi < 3) {
+                let topoSiPosition = Math.floor(Math.random() * 36) + 1;
+                if (document.getElementById(`topoSi${topoSiPosition}`).style.visibility === "hidden") {
+                    document.getElementById(`topoSi${topoSiPosition}`).style.visibility = "visible";
+                    countSi++;
+                }
+            }
+
+            // Mostrar 15 topos "No" aleatorios
+            let countNo = 0;
+            while (countNo < 25) {
+                let randomPosition = Math.floor(Math.random() * 36) + 1;
+                if (document.getElementById(`topoNo${randomPosition}`).style.visibility === "hidden" &&
+                    document.getElementById(`topoSi${randomPosition}`).style.visibility === "hidden") {
+                    document.getElementById(`topoNo${randomPosition}`).style.visibility = "visible";
+                    countNo++;
+                }
+            }
+
+            // Amagar el topo visible després d'un segon
+            setTimeout(function () {
+                document.getElementById(`topoSi${topoSiPosition}`).style.visibility = "hidden";
+                document.getElementById(`topoNo${topoSiPosition}`).style.visibility = "hidden";
+            }, 1000);
+        }
+
+        function actualitzaTemps() {
+            let temps = document.getElementById("tempsRestant");
+            let tempsActual = parseInt(temps.innerHTML);
+
+            if (tempsActual <= 0) {
+                endGame();
+            } else {
+                temps.innerHTML = tempsActual - 1;
+            }
+        }
+
+        function colpeja(imatge) {
+            if (imatge.style.visibility === "visible" && imatge.src.includes("imatges/topoSi.jpg")) {
+                punts += 100;
+                document.getElementById("punts").innerHTML = punts;
+            }
+            if (imatge.style.visibility === "visible" && imatge.src.includes("imatges/topoNo.jpg")) {
+                punts -= 50;
+                document.getElementById("punts").innerHTML = punts;
+            }
+            if (imatge.style.visibility === "visible") {
+                imatge.src = "imatges/topoPam.jpg"; // Canviar la imatge del topo per la colpejada
+
+                // Reproduir un so de boing
+                const audio = new Audio('audio/boing.mp3');
+                audio.play();
+            }
+        }
+
+    </script>
+</body>
+
+</html>

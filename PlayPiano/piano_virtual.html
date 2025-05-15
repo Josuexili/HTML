@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Piano senzill amb memòria i esborrar</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #f8f8f8;
+      padding: 20px;
+    }
+    .piano {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      height: 200px;
+      margin-bottom: 20px;
+    }
+    .tecla {
+      width: 60px;
+      height: 180px;
+      margin: 1px;
+      background-color: white;
+      border: 1px solid #333;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+    .tecla:hover {
+      background-color: #e6e6e6;
+    }
+    #notes {
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: bold;
+      min-height: 30px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Piano senzill amb memòria</h1>
+
+  <div class="piano">
+    <button class="tecla" onclick="tocaNota('do')">Do</button>
+    <button class="tecla" onclick="tocaNota('re')">Re</button>
+    <button class="tecla" onclick="tocaNota('mi')">Mi</button>
+    <button class="tecla" onclick="tocaNota('fa')">Fa</button>
+    <button class="tecla" onclick="tocaNota('sol')">Sol</button>
+    <button class="tecla" onclick="tocaNota('la')">La</button>
+    <button class="tecla" onclick="tocaNota('si')">Si</button>
+  </div>
+
+  <div id="notes">Notes tocades:</div>
+
+  <button onclick="playMemoria()">▶️ Play Memòria</button>
+  <button onclick="esborrarMemoria()">🗑️ Esborrar Memòria</button>
+
+  <script>
+    var memoria = [];
+
+    function tocaNota(nom) {
+      var audio = new Audio("audio/" + nom + ".mp3");
+      audio.play();
+      memoria.push(nom);
+      var notesDiv = document.getElementById("notes");
+      notesDiv.innerHTML = notesDiv.innerHTML + " " + nom;
+    }
+
+    function playMemoria() {
+      if (memoria.length === 0) {
+        alert("Encara no has tocat cap nota!");
+        return;
+      }
+
+      // Reproduir amb retards per evitar sobreposicions
+      for (var i = 0; i < memoria.length; i++) {
+        (function(i) {
+          setTimeout(function() {
+            var so = new Audio("audio/" + memoria[i] + ".mp3");
+            so.play();
+          }, i * 700);  // 700ms entre cada nota
+        })(i);
+      }
+    }
+
+    function esborrarMemoria() {
+      memoria = [];
+      document.getElementById("notes").innerHTML = "Notes tocades:";
+    }
+  </script>
+
+</body>
+</html>
