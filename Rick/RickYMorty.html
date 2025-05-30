@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <title>Personatges Rick i Morty</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0b0c10;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  color: #a6f0a6; /* Verd suau per text general */
+}
+
+h1 {
+  color: #66fcf1;
+  margin-bottom: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+#buscador {
+  padding: 10px;
+  font-size: 16px;
+  width: 280px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: none;
+  box-shadow: 0 0 8px #45a29e44;
+  background-color: #1f2833;
+  color: #a6f0a6;
+  letter-spacing: 1.5px;
+  font-weight: 300;
+}
+
+#buscador::placeholder {
+  color: #66fcf1aa;
+}
+
+#llista {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.personatge {
+  background-color: #1f2833;
+  margin: 8px auto;
+  padding: 12px;
+  border-radius: 8px;
+  width: 280px;
+  cursor: pointer;
+  box-shadow: 0 0 10px #45a29e22;
+  transition: background-color 0.3s, transform 0.2s;
+  color: #28ee5a; /* Nom personatge verd clar */
+  font-weight: 300;
+  letter-spacing: 1.5px;
+}
+
+.personatge:hover {
+  background-color: #45a29e;
+  color: #0b0c10;
+  transform: scale(1.03);
+}
+
+#detall {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #66fcf1, #45a29e);
+  box-shadow: 0 0 20px #45a29e55;
+  color: #a6f0a6; /* Text general verd suau */
+}
+
+#detall h2 {
+  margin-bottom: 15px;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: #000000; /* Nom personatge verd clar */
+}
+
+#detall img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 20px;
+  box-shadow: 0 0 10px #0b0c10;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+#detall img:hover {
+  transform: scale(1.05);
+}
+
+/* Característiques en negre i més gruixudes */
+#detall p {
+  font-size: 18px;
+  margin: 8px 0;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: #0b0c10; /* Negre */
+}
+
+.boto-retorn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #0b0c10;
+  color: #66fcf1;
+  border: 2px solid #66fcf1;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 300;
+  letter-spacing: 2px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.boto-retorn:hover {
+  background-color: #66fcf1;
+  color: #0b0c10;
+}
+
+.loading {
+  font-style: italic;
+  color: #45a29e;
+  font-weight: 300;
+  letter-spacing: 1.2px;
+}
+
+.error {
+  color: #ff5555;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #buscador, .personatge {
+    width: 90%;
+  }
+
+  #detall {
+    width: 90%;
+    padding: 15px;
+  }
+
+  #detall img {
+    max-width: 100%;
+  }
+}
+
+  </style>
+  
+</head>
+<body>
+
+  <h1>Personatges de Rick i Morty</h1>
+  <input id="buscador" type="text" placeholder="Cerca personatge..." oninput="gestionaCerca()" />
+  <div id="llista"><p class="loading">Carregant personatges...</p></div>
+  <div id="detall" style="display:none;"></div>
+  <div id="loading-msg" class="loading" style="margin-top: 20px;"></div>
+
+  <script>
+    let paginaActual = 1;
+    let carregant = false;
+    let mesPersonatges = true;
+    let modeCerca = false;
+
+    const llistaDiv = document.getElementById("llista");
+    const detallDiv = document.getElementById("detall");
+    const buscadorInput = document.getElementById("buscador");
+
+    let personatgesVisibles = [];
+    let totsPersonatges = [];
+    let totsCarregats = false;
+
+    // Funció per mostrar la llista
+    function mostraLlista(llista) {
+      llistaDiv.innerHTML = "";
+      if (llista.length === 0) {
+        llistaDiv.innerHTML = `<p class="error">Cap personatge trobat</p>`;
+        return;
+      }
+      llista.forEach(p => {
+        const div = document.createElement("div");
+        div.className = "personatge";
+        div.textContent = p.name;
+        div.onclick = () => mostraDetall(p);
+        llistaDiv.appendChild(div);
+      });
+    }
+
+    // Funció per mostrar detall d'un personatge
+    function mostraDetall(p) {
+      const detallHTML = `
+        <h2>${p.name}</h2>
+        <img src="${p.image}" alt="Imatge de ${p.name}">
+        <p><strong>Espècie:</strong> ${p.species}</p>
+        <p><strong>Gènere:</strong> ${p.gender}</p>
+        <p><strong>Origen:</strong> ${p.origin.name}</p>
+        <button class="boto-retorn" onclick="tornaEnrere()">Torna a la llista</button>
+      `;
+      llistaDiv.style.display = "none";
+      detallDiv.innerHTML = detallHTML;
+      detallDiv.style.display = "block";
+    }
+
+    // Funció per tornar enrere a la llista
+    function tornaEnrere() {
+      detallDiv.style.display = "none";
+      llistaDiv.style.display = "block";
+    }
+
+    // Carrega pàgina de personatges i afegeix a la llista visible
+    function carregaPagina(pagina) {
+      return fetch(`https://rickandmortyapi.com/api/character?page=${pagina}`)
+        .then(res => res.json())
+        .then(data => {
+          return data;
+        });
+    }
+
+    // Carrega més personatges per scroll infinit (només si no està mode cerca)
+    function carregaMesPersonatges() {
+      if (carregant || !mesPersonatges || modeCerca) return;
+      carregant = true;
+      document.getElementById("loading-msg").textContent = "Carregant més personatges...";
+
+      carregaPagina(paginaActual).then(data => {
+        personatgesVisibles = personatgesVisibles.concat(data.results);
+        mostraLlista(personatgesVisibles);
+        paginaActual++;
+        mesPersonatges = data.info.next !== null;
+        carregant = false;
+        if (!mesPersonatges) {
+          document.getElementById("loading-msg").textContent = "No hi ha més personatges.";
+        } else {
+          document.getElementById("loading-msg").textContent = "";
+        }
+      });
+    }
+
+    // Carrega tots els personatges en background per la cerca
+    function carregaTotsPersonatges() {
+      // Si ja s'han carregat tots, no fer res
+      if (totsCarregats) return;
+
+      let totalPagines = 0;
+      fetch('https://rickandmortyapi.com/api/character')
+        .then(res => res.json())
+        .then(data => {
+          totalPagines = data.info.pages;
+          let promeses = [];
+          for (let p = 1; p <= totalPagines; p++) {
+            promeses.push(carregaPagina(p));
+          }
+          return Promise.all(promeses);
+        })
+        .then(pagines => {
+          totsPersonatges = [];
+          pagines.forEach(pagina => {
+            totsPersonatges = totsPersonatges.concat(pagina.results);
+          });
+          totsCarregats = true;
+          console.log('Tots els personatges carregats per cercar:', totsPersonatges.length);
+        });
+    }
+
+    // Funció de cerca que filtra la llista completa
+    function gestionaCerca() {
+  const text = buscadorInput.value.toLowerCase().trim();
+
+  if (text === "") {
+    modeCerca = false;
+    mostraLlista(personatgesVisibles);
+    document.getElementById("loading-msg").textContent = "";
+    return;
+  }
+
+  if (!totsCarregats) {
+    llistaDiv.innerHTML = `<p class="loading">Encara s’estan carregant tots els personatges per cercar...</p>`;
+    return;
+  }
+
+  modeCerca = true;
+
+  // Primer els que comencen pel text
+  const comencen = totsPersonatges.filter(p => p.name.toLowerCase().startsWith(text));
+  // Després els que contenen el text (excloent els que ja estan en comencen)
+  const contenen = totsPersonatges.filter(p => p.name.toLowerCase().includes(text) && !p.name.toLowerCase().startsWith(text));
+
+  const resultatsOrdenats = comencen.concat(contenen);
+
+  mostraLlista(resultatsOrdenats);
+}
+
+
+    // Scroll infinit
+    window.addEventListener("scroll", () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 50) {
+        carregaMesPersonatges();
+      }
+    });
+
+    // Inici: carrega primera pàgina visible + carrega tots en background
+    carregaMesPersonatges();
+    carregaTotsPersonatges();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boca oberta + Joc</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .birraImg {
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+<script>
+  const WIDTH = 640;
+  const HEIGHT = 480;
+
+  let video; 
+let facemesh;
+let predictions = [];
+
+let timer = 60;
+let timerRunning = false;
+let audio;
+let caigudes = [];
+let punts = 0;
+
+const videoOriginalWidth = 640;
+const videoOriginalHeight = 480;
+
+let scaleX, scaleY; // factors d’escala per ampliar el vídeo
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  video = createCapture(VIDEO);
+  video.size(videoOriginalWidth, videoOriginalHeight);
+  video.hide();
+
+  facemesh = ml5.facemesh(video, () => {
+    console.log("Model carregat");
+  });
+  facemesh.on("predict", results => predictions = results);
+
+  audio = new Audio('./audios/benny.mp3');
+
+  updateScale();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  updateScale();
+}
+
+// Actualitza els factors d’escala en funció de la mida de la finestra
+function updateScale() {
+  scaleX = width / videoOriginalWidth;
+  scaleY = height / videoOriginalHeight;
+}
+
+function draw() {
+  background(0);
+
+  push();
+  // reflectim horitzontalment
+  translate(width, 0);
+  scale(-1, 1);
+  // dibuixem el vídeo escalat a la mida de la finestra
+  image(video, 0, 0, width, height);
+  pop();
+
+  drawKeypoints();
+
+  fill(0, 255, 0);
+  textSize(24);
+  textAlign(CENTER);
+
+  if (bocaOberta()) {
+    text("Boca oberta", width / 2, 30);
+  } else {
+    text("Boca tancada", width / 2, 30);
+  }
+
+  if (!timerRunning) {
+    text("Obre la boca per començar!", width / 2, 60);
+  }
+
+  if (!timerRunning && bocaOberta()) {
+    startTimer();
+  }
+
+  if (timerRunning) {
+    if (frameCount % 15 === 0 && caigudes.length < 3) {
+      caigudes.push(new Caiguda(random(width), 0));
+    }
+
+    for (let i = caigudes.length - 1; i >= 0; i--) {
+      caigudes[i].update();
+      caigudes[i].show();
+
+      if (caigudes[i].y > height) {
+        caigudes[i].remove();
+        caigudes.splice(i, 1);
+      }
+    }
+
+    if (predictions.length > 0) {
+      const boca = predictions[0].scaledMesh;
+      const [bx, by] = boca[13];
+      // ajustem escala i mirall per al punt de la boca
+      const centerX = width - bx * scaleX;
+      const centerY = by * scaleY;
+
+      for (let i = caigudes.length - 1; i >= 0; i--) {
+        if (caigudes[i].tocada(centerX, centerY)) {
+          punts += 100;
+          caigudes[i].remove();
+          caigudes.splice(i, 1);
+        }
+      }
+    }
+
+    fill(255, 0, 0);
+    textSize(32);
+    textAlign(LEFT, TOP);
+    text("Temps: " + timer, 10, 10);
+    text("Punts: " + punts, 10, 50);
+
+    if (timer > 0 && frameCount % 60 === 0) {
+      timer--;
+    }
+
+    if (timer === 0) {
+      resetGame();
+    }
+  }
+}
+
+function drawKeypoints() {
+  if (predictions.length > 0) {
+    let keypoints = predictions[0].scaledMesh;
+
+    push();
+    translate(width, 0);
+    scale(-1, 1);
+
+    fill(0, 255, 255);
+    noStroke();
+    for (let i = 0; i < keypoints.length; i++) {
+      const [x, y] = keypoints[i];
+      ellipse(x * scaleX, y * scaleY, 5, 5);
+    }
+
+    pop();
+  }
+}
+
+function bocaOberta() {
+  if (predictions.length > 0) {
+    let boca = predictions[0].scaledMesh;
+    let topLip = boca[13];
+    let bottomLip = boca[14];
+    let leftLip = boca[78];
+    let rightLip = boca[308];
+
+    let verticalDist = dist(topLip[0], topLip[1], bottomLip[0], bottomLip[1]);
+    let horizontalDist = dist(leftLip[0], leftLip[1], rightLip[0], rightLip[1]);
+    let opennessRatio = verticalDist / horizontalDist;
+
+    return opennessRatio > 0.25;
+  }
+  return false;
+}
+
+function startTimer() {
+  if (!timerRunning) {
+    timerRunning = true;
+    audio.currentTime = 0;
+    audio.play();
+    punts = 0;
+  }
+}
+
+function resetGame() {
+  timerRunning = false;
+  timer = 60;
+  audio.pause();
+  audio.currentTime = 0;
+  for (let obj of caigudes) obj.remove();
+  caigudes = [];
+}
+
+function Caiguda(x, y) {
+  this.x = x;
+  this.y = y;
+  this.speed = random(5, 10);
+  this.size = random(50, 80);
+
+  this.img = document.createElement('img');
+  this.img.src = 'birra.png';
+  this.img.className = 'birraImg';
+  this.img.style.width = this.size + 'px';
+  this.img.style.height = this.size + 'px';
+  document.body.appendChild(this.img);
+
+  this.update = function () {
+    this.y += this.speed;
+  };
+
+  this.show = function () {
+    this.img.style.left = this.x + 'px';
+    this.img.style.top = this.y + 'px';
+  };
+
+  this.remove = function () {
+    if (this.img.parentNode) {
+      this.img.parentNode.removeChild(this.img);
+    }
+  };
+
+  this.tocada = function (mx, my) {
+    return (
+      mx >= this.x &&
+      mx <= this.x + this.size &&
+      my >= this.y &&
+      my <= this.y + this.size
+    );
+  };
+}
+
+</script>
+</body>
+</html>

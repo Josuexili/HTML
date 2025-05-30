@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benny Hill + Birres - Punts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .birraImg {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        let video;
+        let poseNet;
+        let poses = [];
+        let timer = 60;
+        let timerRunning = false;
+        let audio;
+        let caigudes = [];
+        let punts = 0;
+
+        const circleX = 640;
+        const circleY = 70;
+        const circleRadius = 150;
+
+        function setup() {
+            createCanvas(1280, 720);
+            video = createCapture(VIDEO);
+            video.size(1280, 720);
+            video.hide();
+
+            audio = new Audio('./audios/benny.mp3');
+
+            poseNet = ml5.poseNet(video, () => console.log("PoseNet carregat!"));
+            poseNet.on('pose', gotPoses);
+        }
+
+        function gotPoses(results) {
+            poses = results;
+        }
+
+        function draw() {
+            // Invertir la càmera horitzontalment (evita efecte mirall)
+            push();                  // Guarda l'estat del canvas
+            translate(width, 0);     // Mou el canvas a la dreta
+            scale(-1, 1);            // Inverteix horitzontalment
+            image(video, 0, 0);      // Dibuixa el vídeo invertit
+            pop();                   // Restaura l'estat normal
+
+
+            if (!timerRunning) {
+                fill(0, 255, 0);
+                noStroke();
+                ellipse(circleX, circleY, circleRadius * 2);
+            }
+
+            if (poses.length > 0 && !timerRunning) {
+                let pose = poses[0].pose;
+                let left = pose.keypoints.find(k => k.part === 'leftWrist');
+                let right = pose.keypoints.find(k => k.part === 'rightWrist');
+                if (left && right) {
+                    let d1 = dist(left.position.x, left.position.y, circleX, circleY);
+                    let d2 = dist(right.position.x, right.position.y, circleX, circleY);
+                    if (d1 < circleRadius && d2 < circleRadius) {
+                        startTimer();
+                    }
+                }
+            }
+
+            if (poses.length > 0) {
+                let pose = poses[0].pose;
+                for (let kp of pose.keypoints) {
+                    if (kp.score > 0.2 && (kp.part.includes('Wrist') || kp.part.includes('Ankle'))) {
+                        fill(255, 0, 0);
+                        noStroke();
+                        ellipse(kp.position.x, kp.position.y, 12, 12);
+                    }
+                }
+            }
+
+            if (timerRunning) {
+                if (frameCount % 10 === 0 && caigudes.length < 3) {
+                    caigudes.push(new Caiguda(random(width), 0));
+                }
+
+                // Mostrar i moure birres
+                for (let i = caigudes.length - 1; i >= 0; i--) {
+                    caigudes[i].update();
+                    caigudes[i].show();
+
+                    // Eliminar si surt de la pantalla
+                    if (caigudes[i].y > height) {
+                        caigudes[i].remove();
+                        caigudes.splice(i, 1);
+                    }
+                }
+
+                // Comprovar si una mà toca una birra
+                if (poses.length > 0) {
+                    let pose = poses[0].pose;
+                    let left = pose.keypoints.find(k => k.part === 'leftWrist');
+                    let right = pose.keypoints.find(k => k.part === 'rightWrist');
+
+                    for (let i = caigudes.length - 1; i >= 0; i--) {
+                        if (left && caigudes[i].tocada(left.position.x, left.position.y)) {
+                            punts++;
+                            caigudes[i].remove();
+                            caigudes.splice(i, 1);
+                            continue;
+                        }
+                        if (right && caigudes[i].tocada(right.position.x, right.position.y)) {
+                            punts++;
+                            caigudes[i].remove();
+                            caigudes.splice(i, 1);
+                        }
+                    }
+                }
+
+                // CRONÒMETRE i PUNTS
+                fill(255, 0, 0);
+                textSize(48);
+                textAlign(LEFT, TOP);
+                text("Temps: " + timer, 20, 20);
+                text("Punts: " + punts, 20, 80);
+
+                if (timer > 0 && frameCount % 60 === 0) {
+                    timer--;
+                }
+
+                if (timer === 0) {
+                    resetGame();
+                }
+            }
+        }
+
+        function startTimer() {
+            if (!timerRunning) {
+                timerRunning = true;
+                audio.currentTime = 0;
+                audio.play();
+                punts = 0; // Reiniciar punts
+            }
+        }
+
+        function resetGame() {
+            timerRunning = false;
+            timer = 60;
+            audio.pause();
+            audio.currentTime = 0;
+            for (let obj of caigudes) {
+                obj.remove();
+            }
+            caigudes = [];
+        }
+
+        function Caiguda(x, y) {
+            this.x = x;
+            this.y = y;
+            this.speed = random(15, 30);
+            this.size = random(60, 120);
+
+            this.img = document.createElement('img');
+            this.img.src = 'birra.png';
+            this.img.className = 'birraImg';
+            this.img.style.width = this.size + 'px';
+            this.img.style.height = this.size + 'px';
+            document.body.appendChild(this.img);
+
+            this.update = function () {
+                this.y += this.speed;
+            };
+
+            this.show = function () {
+                this.img.style.left = this.x + 'px';
+                this.img.style.top = this.y + 'px';
+            };
+
+            this.remove = function () {
+                if (this.img.parentNode) {
+                    this.img.parentNode.removeChild(this.img);
+                }
+            };
+
+            this.tocada = function (mx, my) {
+                return (
+                    mx >= this.x &&
+                    mx <= this.x + this.size &&
+                    my >= this.y &&
+                    my <= this.y + this.size
+                );
+            };
+        }
+
+        function mousePressed() {
+            let d = dist(mouseX, mouseY, circleX, circleY);
+            if (!timerRunning && d < circleRadius) {
+                startTimer();
+            }
+        }
+    </script>
+</body>
+
+</html>

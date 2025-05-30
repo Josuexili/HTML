@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Punts facials</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ml5@0.12.2/dist/ml5.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<script>
+  let video;
+  let facemesh;
+  let predictions = [];
+
+  const WIDTH = 640;
+  const HEIGHT = 480;
+
+  function setup() {
+    createCanvas(WIDTH, HEIGHT);
+    video = createCapture(VIDEO);
+    video.size(WIDTH, HEIGHT);
+    video.hide();
+
+    facemesh = ml5.facemesh(video, () => {
+      console.log("Model carregat");
+    });
+
+    facemesh.on("predict", results => {
+      predictions = results;
+    });
+  }
+
+  function draw() {
+    background(0);
+
+    // Dibuixem el vídeo reflectit com un mirall
+    push();
+    translate(WIDTH, 0);
+    scale(-1, 1);
+    image(video, 0, 0, WIDTH, HEIGHT);
+    pop();
+
+    drawKeypoints();
+  }
+
+  function drawKeypoints() {
+    if (predictions.length > 0) {
+      let keypoints = predictions[0].scaledMesh;
+
+      push();
+      translate(WIDTH, 0);
+      scale(-1, 1); // reflectim també els punts facials
+
+      fill(0, 255, 0);
+      noStroke();
+      for (let i = 0; i < keypoints.length; i++) {
+        const [x, y] = keypoints[i];
+        ellipse(x, y, 5, 5);
+      }
+
+      pop();
+    }
+  }
+</script>
+</body>
+</html>
